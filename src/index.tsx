@@ -1,17 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { Reset } from "styled-reset";
+import styled from "styled-components";
+
+const AppWrapper = styled.div`
+  @font-face {
+    font-family: 'AppFont';
+    src: url(${"./fonts/Open_Sans/OpenSans-Light.ttf"});
+  }
+
+  font-family: AppFont;
+  * {
+    box-sizing: border-box;
+  }
+
+  input, button, select, textarea, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+  }
+`;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Reset/>
+    <AppWrapper>
+      <App />
+    </AppWrapper>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
