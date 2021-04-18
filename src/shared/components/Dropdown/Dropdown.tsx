@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import Platform from "./platform/Platform";
+import Account from "./account/Account";
+import Workspaces from "./workspaces/Workspaces";
 
 const DropdownWrapper = styled.div`
     display: flex;
@@ -9,7 +12,7 @@ const DropdownWrapper = styled.div`
     width: 250px;
     border: 1px solid #E8E8E8;
     background-color: white;
-    padding: 5px 5px;
+    padding: 5px 0;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
 `;
@@ -24,8 +27,14 @@ const Title = styled.span`
 function Dropdown() {
     return <DropdownWrapper>
         <Title>Platform</Title>
+        <Platform/>
+
         <Title>Workspaces</Title>
+        <Workspaces/>
+
         <Title>Account</Title>
+        <Account/>
+        
     </DropdownWrapper>
 }
 

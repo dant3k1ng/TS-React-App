@@ -4,8 +4,7 @@ const LogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  padding-left: 14px;
+  width: 60px;
 `;
 
 const LogoImage = styled.img`

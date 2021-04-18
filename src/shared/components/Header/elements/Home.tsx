@@ -6,7 +6,7 @@ import Dropdown from "../../Dropdown/Dropdown";
 const HomeWrapper = styled.div`
     display: flex;
     align-items: center;
-    width: 250px;
+    width: 240px;
     padding: 0 12px;
 `;
 
@@ -39,7 +39,7 @@ const HomeText = styled.span`
 `;
 
 const Home : FC = () => {
-    const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] = useDropdown();
+    const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
 
     return (
         <HomeWrapper>
