@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Color from "../../styledHelpers/Colors";
-import { getUser } from "../../../api/User";
+import { getUser } from "../../api/User";
+import SpaceLine from "../../shared/components/SpaceLine";
 import Footer from "./ProfileCard/Footer";
 import Info from "./ProfileCard/Info";
 
@@ -12,13 +12,6 @@ const Card = styled.div`
     border: 1px solid #e9e9e9;
     box-shadow: 0px 2px 3px 0px #cccccc;
     padding: 12px 0;
-`;
-
-const Space = styled.div`
-    width: 100%;
-    height: 1px;
-    background-color: #e9e9e9;
-    margin: 10px 0;
 `;
 
 interface IProps {}
@@ -48,7 +41,7 @@ export default class ProfileCard extends React.Component<IProps, IState>
         return (
             <Card>
                 <Info data={this.state.data}/>
-                <Space />
+                <SpaceLine/>
                 <Footer/>
             </Card>
         );

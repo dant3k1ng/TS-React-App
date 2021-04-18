@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Color from "./../../../styledHelpers/Colors";
+import Color from "../../../shared/styledHelpers/Colors";
 
 const ItemsContainer = styled.div`
     width: 100%;
@@ -63,7 +63,7 @@ export default function Footer()
                 </Content>
                 <ActionBox>
                     <Button>
-                        <ItemImage src="./img/icons/network.svg" alt="Your network" />
+                        <ItemImage src="./img/icons/network.svg" alt="Add to network" />
                     </Button>
                 </ActionBox>
             </Item>
@@ -74,7 +74,7 @@ export default function Footer()
                 </Content>
                 <ActionBox>
                     <Button>
-                        <ItemImage src="./img/icons/plus.svg" alt="Your network" />
+                        <ItemImage src="./img/icons/plus.svg" alt="Add publication" />
                     </Button>
                 </ActionBox>
             </Item>

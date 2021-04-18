@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Platform from "./platform/Platform";
 import Account from "./account/Account";
 import Workspaces from "./workspaces/Workspaces";
+import Logout from "./Logout";
+import SpaceLine from "../../shared/components/SpaceLine";
 
 const DropdownWrapper = styled.div`
     display: flex;
@@ -21,21 +23,36 @@ const Title = styled.span`
     color: #959595;
     font-weight: 900;
     font-size: 0.9em;
-    line-height: 0.86;
+    line-height: 0.84;
+    padding-left: 12px;
+    margin: 6px 0;
 `;
 
-function Dropdown() {
-    return <DropdownWrapper>
-        <Title>Platform</Title>
-        <Platform/>
+function Dropdown() 
+{
+    const isLoggedIn = true; 
 
-        <Title>Workspaces</Title>
-        <Workspaces/>
+    return (
+        <DropdownWrapper>
+            <Title>Platform</Title>
+            <Platform/>
 
-        <Title>Account</Title>
-        <Account/>
-        
-    </DropdownWrapper>
+            <Title>Workspaces</Title>
+            <Workspaces/>
+
+            <SpaceLine />
+
+            <Title>Account</Title>
+            <Account/>
+
+            <SpaceLine />
+
+            {
+                isLoggedIn ? <Logout/> : null
+            }
+            
+        </DropdownWrapper>
+    )
 }
 
 export default Dropdown;

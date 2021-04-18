@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Color from "./../../styledHelpers/Colors";
+import Color from "../../shared/styledHelpers/Colors";
 
 const ItemsContainer = styled.div`
     width: 100%;
