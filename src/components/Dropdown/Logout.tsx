@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Color from "../../shared/styledHelpers/Colors";
+import Color from "../../shared/styleHelpers/Colors";
 
 const LogoutContainer = styled.div`
     display: flex;

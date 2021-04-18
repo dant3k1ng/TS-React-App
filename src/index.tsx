@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { Reset } from "styled-reset";
 import styled from "styled-components";
-import { GlobalStyle } from './shared/styledHelpers/GlobalStyle';
+import { GlobalStyle } from './shared/styleHelpers/GlobalStyle';
 
 const AppWrapper = styled.div`
   @font-face {

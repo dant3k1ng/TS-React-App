@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Item, Image, Text } from "../../../shared/styledHelpers/components/Dropdown/styles";
+import { Item, Image, Text } from "../../../shared/styleHelpers/components/Dropdown/styles";
 
 const ItemsContainer = styled.div`
     padding: 0 12px;

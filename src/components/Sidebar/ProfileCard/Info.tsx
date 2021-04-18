@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Color from "../../../shared/styledHelpers/Colors";
-import FontSize from "../../../shared/styledHelpers/FontSizes";
+import Color from "../../../shared/styleHelpers/Colors";
+import FontSize from "../../../shared/styleHelpers/FontSizes";
 
 const ImageContainer = styled.div`
     display: flex;
