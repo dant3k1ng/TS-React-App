@@ -1,4 +1,6 @@
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { logout } from "../../redux/actions/UserAction";
 import Color from "../../shared/styleHelpers/Colors";
 
 const LogoutContainer = styled.div`
@@ -20,8 +22,10 @@ const Text = styled.span`
 
 function Logout() 
 {
+    const dispatch = useDispatch();
+
     return (
-        <LogoutContainer>
+        <LogoutContainer onClick={() => dispatch(logout())}>
             <img src="./img/icons/logout.svg" alt="logout" />
             <Text>Logout</Text>
         </LogoutContainer>

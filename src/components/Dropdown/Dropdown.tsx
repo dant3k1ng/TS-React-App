@@ -4,6 +4,7 @@ import Account from "./account/Account";
 import Workspaces from "./workspaces/Workspaces";
 import Logout from "./Logout";
 import SpaceLine from "../../shared/components/SpaceLine";
+import { IsUserLoggedIn } from "../../helpers/User";
 
 const DropdownWrapper = styled.div`
     display: flex;
@@ -28,29 +29,30 @@ const Title = styled.span`
     margin: 6px 0;
 `;
 
-function Dropdown() 
-{
-    const isLoggedIn = true; 
+function Dropdown() {
+    const isLoggedIn = IsUserLoggedIn();
 
     return (
         <DropdownWrapper>
             <Title>Platform</Title>
-            <Platform/>
+            <Platform />
 
             <Title>Workspaces</Title>
-            <Workspaces/>
-
-            <SpaceLine />
-
-            <Title>Account</Title>
-            <Account/>
-
-            <SpaceLine />
+            <Workspaces />
 
             {
-                isLoggedIn ? <Logout/> : null
+                isLoggedIn ?
+                    <>
+                        <SpaceLine />
+
+                        <Title>Account</Title>
+                        <Account />
+
+                        <SpaceLine />
+                        <Logout />
+                    </> : null
             }
-            
+
         </DropdownWrapper>
     )
 }

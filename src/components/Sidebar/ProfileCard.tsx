@@ -1,6 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-import { getUser } from "../../api/User";
 import SpaceLine from "../../shared/components/SpaceLine";
 import Footer from "./ProfileCard/Footer";
 import Info from "./ProfileCard/Info";
@@ -14,36 +12,13 @@ const Card = styled.div`
     padding: 12px 0;
 `;
 
-interface IProps {}
-interface IState {
-    data: any
-}
-export default class ProfileCard extends React.Component<IProps, IState>
+export default function ProfileCard()
 {
-    constructor(props: IProps) 
-    {
-        super(props);
-     
-        this.state = {
-            data: null,
-        };
-    }
-
-    componentDidMount()
-    {
-        getUser()
-            .then(response => response.json())
-            .then(data => this.setState({ data }));
-    }
-
-    render()
-    {
-        return (
-            <Card>
-                <Info data={this.state.data}/>
-                <SpaceLine/>
-                <Footer/>
-            </Card>
-        );
-    }
+    return (
+        <Card>
+            <Info />
+            <SpaceLine/>
+            <Footer/>
+        </Card>
+    );
 }

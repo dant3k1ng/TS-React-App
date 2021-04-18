@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 import Color from "../../../shared/styleHelpers/Colors";
 import FontSize from "../../../shared/styleHelpers/FontSizes";
 
@@ -30,12 +31,9 @@ const CompanyName = styled.span`
     padding: 5px 0;
 `;
 
-interface IProps {
-    data: any
-}
-export default function Info(props: IProps) 
+export default function Info() 
 {
-    const user = props.data;
+    const user = useSelector((state: any) => state.user);
     const userImageUrl = "https://image.shutterstock.com/shutterstock/photos/623804987/display_1500/stock-photo-headshot-portrait-of-happy-ginger-girl-with-freckles-smiling-looking-at-camera-white-background-623804987.jpg";
 
     return (
