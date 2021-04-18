@@ -4,7 +4,8 @@ import Color from "../../shared/styledHelpers/Colors";
 const LogoutContainer = styled.div`
     display: flex;
     justify-content: center;
-    padding: 12px 0;
+    padding: 8px 0;
+    margin-bottom: 4px;
 
     &:hover {
         cursor: pointer;
