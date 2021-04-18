@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { Reset } from "styled-reset";
 import styled from "styled-components";
+import { GlobalStyle } from './shared/styledHelpers/GlobalStyle';
 
 const AppWrapper = styled.div`
   @font-face {
@@ -26,6 +27,8 @@ const AppWrapper = styled.div`
 ReactDOM.render(
   <React.StrictMode>
     <Reset/>
+    <GlobalStyle/>
+    
     <AppWrapper>
       <App />
     </AppWrapper>
