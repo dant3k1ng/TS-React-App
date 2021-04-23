@@ -7,7 +7,7 @@ const SidebarWrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 300px;
+    width: 100%;
     padding: 0 32px;
 `;
 

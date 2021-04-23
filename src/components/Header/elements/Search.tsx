@@ -9,7 +9,7 @@ const SearchWrapper = styled.div`
 `;
 
 const SearchInput = styled.input`
-    height: 54%;
+    height: 70%;
     border-radius: 3px;
     border: 1px solid #E8E8E8;
     font-size: 1.1em;
