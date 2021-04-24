@@ -25,11 +25,27 @@ const Content = styled.div`
 const ContentFooter = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: center;
+    height: 20px;
 `;
 
 const Date = styled.span`
     color: ${Color.gray};
     font-size: ${FontSize[90]};
+`;
+
+const AuthorImage = styled.img`
+    border-radius: 100%;
+    object-fit: cover;
+    width: 20px;
+    height: 20px;
+    margin: 0 12px;
+`;
+
+const AuthorName = styled.span`
+    font-size: ${FontSize[90]};
+    font-weight: 900;
+    color: ${Color.darkBlue};
 `;
 
 const Title = styled.span`
@@ -44,13 +60,18 @@ const Title = styled.span`
 `;
 
 function Publication() {
+    const date = "7 Jan. 2020";
+    const authorName = "John Doe";
+
     return (
         <PublicationContainer>
             <Image src="img/man-5710164_640.jpg" alt="item"/>
             <Content>
                 <Title>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam enim odio, ullamcorper vitae semper eget, aliquam eget est.</Title>
                 <ContentFooter>
-                    <Date>7 Jan. 2020</Date>
+                    <Date>{date}</Date>
+                    <AuthorImage src="img/avatar.jpg" alt="author"/>
+                    <AuthorName>{authorName}</AuthorName>
                 </ContentFooter>
             </Content>
         </PublicationContainer>
