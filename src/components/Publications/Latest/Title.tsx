@@ -9,9 +9,9 @@ const TextWrapper = styled.div`
 `;
 
 const TitleText = styled.span`
-    font-weight: 900;
     font-size: ${FontSize[110]};
-    color: ${Color.darkGray};
+    color: ${Color.Fiord};
+    font-family: "AppFontBold";
 `;
 
 function Title() {
