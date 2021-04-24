@@ -5,6 +5,7 @@ import { getUser } from "../../api/User";
 import Header from "../../components/Header/Header";
 import LatestPublications from "../../components/Publications/LatestPublications";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import Workspaces from "../../components/Workspaces/Workspaces";
 import { setUser } from "../../redux/actions/UserAction";
 import Color from "../../shared/styleHelpers/Colors";
 
@@ -56,6 +57,7 @@ function MainPage() {
         <ContentWrapper>
           <LatestPublications/>
           <LabelText>Workspaces</LabelText>
+          <Workspaces/>
           <LabelText>Resume your work</LabelText>
         </ContentWrapper>
       </Container>
