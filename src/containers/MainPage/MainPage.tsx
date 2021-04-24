@@ -6,6 +6,7 @@ import Header from "../../components/Header/Header";
 import LatestPublications from "../../components/Publications/LatestPublications";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { setUser } from "../../redux/actions/UserAction";
+import Color from "../../shared/styleHelpers/Colors";
 
 const MainPageWrapper = styled.div``;
 const Container = styled.div`
@@ -21,6 +22,16 @@ const SidebarWrapper = styled.div`
 const ContentWrapper = styled.div`
   width: calc(100% - 300px);
   padding-right: 64px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const LabelText = styled.span`
+  padding: 12px 15px;
+  font-size: 1.25rem;
+  font-family: "AppFontBold";
+  color: ${Color.Fiord};
+  margin: 8px 0 2px 0;
 `;
 
 function MainPage() {
@@ -44,6 +55,8 @@ function MainPage() {
         </SidebarWrapper>
         <ContentWrapper>
           <LatestPublications/>
+          <LabelText>Workspaces</LabelText>
+          <LabelText>Resume your work</LabelText>
         </ContentWrapper>
       </Container>
     </MainPageWrapper>
