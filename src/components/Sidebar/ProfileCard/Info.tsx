@@ -34,12 +34,11 @@ const CompanyName = styled.span`
 export default function Info() 
 {
     const user = useSelector((state: any) => state.user);
-    const userImageUrl = "https://image.shutterstock.com/shutterstock/photos/623804987/display_1500/stock-photo-headshot-portrait-of-happy-ginger-girl-with-freckles-smiling-looking-at-camera-white-background-623804987.jpg";
 
     return (
         <div>
             <ImageContainer>
-                <UserImage src={userImageUrl} alt="user" />
+                <UserImage src="img/avatar.jpg" alt="user" />
             </ImageContainer>
             <InfoFooter>
                 <UserName>{user?.name}</UserName>
