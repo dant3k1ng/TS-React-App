@@ -14,7 +14,13 @@ const store = createStore(AppReducers, composeEnhancers());
 const AppWrapper = styled.div`
   @font-face {
     font-family: 'AppFont';
-    src: url(${"./fonts/Open_Sans/OpenSans-Light.ttf"});
+    /* src: url(${"./fonts/Open_Sans/OpenSans-Light.ttf"}); */
+    src: url(${"./fonts/Roboto/Roboto-Light.ttf"});
+  }
+
+  @font-face {
+    font-family: 'AppFontBold';
+    src: url(${"./fonts/Roboto/Roboto-Bold.ttf"});
   }
 
   font-family: AppFont;
