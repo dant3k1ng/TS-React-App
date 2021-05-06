@@ -42,9 +42,9 @@ const Home : FC = () => {
     const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
 
     return (
-        <HomeWrapper>
+        <HomeWrapper ref={wrapperRef}>
             <HomeImage src="img/icons/house2.png" />
-            <InteractivePanel ref={wrapperRef} onClick={toggleDropdown}>
+            <InteractivePanel onClick={toggleDropdown}>
                 <HomeText>Home</HomeText>
                 <ArrowImagePanel>
                     <ArrowImage src="img/icons/arrow-down.png" />
