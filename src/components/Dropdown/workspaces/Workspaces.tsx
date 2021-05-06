@@ -5,7 +5,10 @@ const ItemsContainer = styled.div`
     padding: 0 12px;
 `;
 
-export default function Workspaces() {
+interface IProps {
+    filterText: string;
+}
+function Workspaces(props: IProps) {
     return (
         <ItemsContainer>
             <Item>
@@ -31,3 +34,5 @@ export default function Workspaces() {
         </ItemsContainer>
     );
 }
+
+export default Workspaces;

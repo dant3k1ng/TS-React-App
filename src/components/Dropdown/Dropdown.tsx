@@ -5,6 +5,8 @@ import Workspaces from "./workspaces/Workspaces";
 import Logout from "./Logout";
 import SpaceLine from "../../shared/components/SpaceLine";
 import { IsUserLoggedIn } from "../../helpers/User";
+import { useState } from "react";
+import Search from "./Search";
 
 const DropdownWrapper = styled.div`
     display: flex;
@@ -31,14 +33,21 @@ const Title = styled.span`
 
 function Dropdown() {
     const isLoggedIn = IsUserLoggedIn();
+    const [inputText, setInputText] = useState("");
+    const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const text = e.target.value;
+        setInputText(text);
+    }
 
     return (
         <DropdownWrapper>
+            <Search onChangeHandler={inputChangeHandler}/>
+
             <Title>Platform</Title>
-            <Platform />
+            <Platform filterText={inputText}/>
 
             <Title>Workspaces</Title>
-            <Workspaces />
+            <Workspaces filterText={inputText}/>
 
             {
                 isLoggedIn ?
@@ -46,7 +55,7 @@ function Dropdown() {
                         <SpaceLine />
 
                         <Title>Account</Title>
-                        <Account />
+                        <Account filterText={inputText}/>
 
                         <SpaceLine />
                         <Logout />

@@ -43,7 +43,10 @@ const SeeProfileText = styled.button`
     font-size: ${FontSize[85]};
 `;
 
-function Account() 
+interface IProps {
+    filterText: string;
+}
+function Account(props: IProps) 
 {
     const userName = useSelector((state: any) => state?.user?.name);
 
