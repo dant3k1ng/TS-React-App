@@ -2,13 +2,10 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { getUser } from "../../api/User";
-import Works from "../../components/Works/Works";
 import Header from "../../components/Header/Header";
-import LatestPublications from "../../components/Publications/LatestPublications";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import Workspaces from "../../components/Workspaces/Workspaces";
 import { setUser } from "../../redux/actions/UserAction";
-import Color from "../../shared/styleHelpers/Colors";
+import Content from "./Content";
 
 const MainPageWrapper = styled.div``;
 const Container = styled.div`
@@ -19,21 +16,6 @@ const Container = styled.div`
 
 const SidebarWrapper = styled.div`
   width: 300px;
-`;
-
-const ContentWrapper = styled.div`
-  width: calc(100% - 300px);
-  padding-right: 64px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const LabelText = styled.span`
-  padding: 12px 15px;
-  font-size: 1.25rem;
-  font-family: "AppFontBold";
-  color: ${Color.Fiord};
-  margin: 8px 0 2px 0;
 `;
 
 function MainPage() {
@@ -55,13 +37,7 @@ function MainPage() {
         <SidebarWrapper>
           <Sidebar />
         </SidebarWrapper>
-        <ContentWrapper>
-          <LatestPublications/>
-          <LabelText>Workspaces</LabelText>
-          <Workspaces/>
-          <LabelText>Resume your work</LabelText>
-          <Works/>
-        </ContentWrapper>
+        <Content/>
       </Container>
     </MainPageWrapper>
   );
