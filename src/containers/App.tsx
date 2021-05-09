@@ -12,7 +12,7 @@ const store = createStore(AppReducers, composeEnhancers());
 function App() {
   return (
     <Provider store={store}>
-      <Reset />
+      {/* <Reset /> */}
       <GlobalStyle />
       <div>
         <BrowserRouter>
