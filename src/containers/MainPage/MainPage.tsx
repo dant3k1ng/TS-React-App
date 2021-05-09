@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { getUser } from "../../api/User";
-import Works from "../../components/Dropdown/Works/Works";
+import Works from "../../components/Works/Works";
 import Header from "../../components/Header/Header";
 import LatestPublications from "../../components/Publications/LatestPublications";
 import Sidebar from "../../components/Sidebar/Sidebar";

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { IPost } from "../../../../api/Post";
-import Color from "../../../../shared/styleHelpers/Colors";
-import FontSize from "../../../../shared/styleHelpers/FontSizes";
+import { IPost } from "../../../api/Post";
+import Color from "../../../shared/styleHelpers/Colors";
+import FontSize from "../../../shared/styleHelpers/FontSizes";
 
 const ItemContainer = styled.div`
     box-shadow: 0px 2px 3px 0px #cccccc;
@@ -10,13 +10,15 @@ const ItemContainer = styled.div`
     padding: 6px 12px;
 `;
 
-const Title = styled.h2`
+const Title = styled.h4`
     color: ${Color.blue};
     font-weight: 900;
+    margin: 0px;
 `;
 
 const Content = styled.p`
     padding: 8px 0;
+    margin: 0px;
     color: ${Color.darkGray};
 `;
 

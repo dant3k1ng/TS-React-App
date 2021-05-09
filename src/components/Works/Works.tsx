@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { getPosts, IPost } from "../../../api/Post";
+import { getPosts, IPost } from "../../api/Post";
 import Work from "./elements/Work";
 
 const ItemContainer = styled.div``;
