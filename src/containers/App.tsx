@@ -1,4 +1,3 @@
-import { Reset } from "styled-reset";
 import { createStore, compose } from "redux";
 import { Provider } from "react-redux";
 import AppReducers from "../redux/reducers";
@@ -12,7 +11,6 @@ const store = createStore(AppReducers, composeEnhancers());
 function App() {
   return (
     <Provider store={store}>
-      {/* <Reset /> */}
       <GlobalStyle />
       <div>
         <BrowserRouter>
