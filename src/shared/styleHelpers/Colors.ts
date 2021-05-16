@@ -7,6 +7,9 @@ const Color = {
     gray: "#909090",
     darkGray: "#363636",
 
+    //
+    paginationBlue: "#58abd2",
+
     // color name by hex
     Fiord: "#4B5274",
 }
