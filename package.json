@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@brainhubeu/react-carousel": "^2.0.3",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
@@ -52,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "@types/brainhubeu__react-carousel": "^2.0.2",
     "@types/react-paginate": "^7.1.0"
   }
 }
