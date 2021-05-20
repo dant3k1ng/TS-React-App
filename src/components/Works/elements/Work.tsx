@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { IPost } from "../../../api/Post";
 import Color from "../../../shared/styleHelpers/Colors";
+import { Dot } from "../../../shared/components/Dot";
 import FontSize from "../../../shared/styleHelpers/FontSizes";
 
 const ItemContainer = styled.div`
@@ -23,11 +24,6 @@ const Content = styled.p`
 `;
 
 const Footer = styled.div``;
-
-const Dot = styled.span`
-    color: ${Color.gray};
-    padding: 0 6px;
-`;
 
 const CompanyName = styled.span`
     font-size: ${FontSize[85]};
@@ -56,9 +52,9 @@ export default function Work(props: IProps)
             <Content>{props.post.body}</Content>
             <Footer>
                 <CompanyName>Subsid. corp.</CompanyName>
-                <Dot>&#x2022;</Dot>
+                <Dot/>
                 <JobType>Corporate</JobType>
-                <Dot>&#x2022;</Dot>
+                <Dot/>
                 <UserInfo>Updated 3 days ago by John Doe</UserInfo>
             </Footer>
         </ItemContainer>
