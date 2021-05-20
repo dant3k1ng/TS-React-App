@@ -86,31 +86,34 @@ const FollowedImg = styled(FollowedFilterColor)``;
 const FollowedArrowDown = styled(FollowedFilterColor)``;
 
 function Content() {
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const text = e.target.value;
+  }
 
-    return (
-        <ContentWrapper>
-            <LatestPublications />
-            <LabelHeaderContainer>
-                <LabelText>Workspaces</LabelText>
-            </LabelHeaderContainer>
-            <Workspaces />
-            <ResumeWorkHeaderContainer>
-                <LabelText>Resume your work</LabelText>
-                <ResumeWorkOptions>
-                    <SearchWrapper>
-                        <SearchInput type="text" placeholder="Filter by title..." />
-                        <SearchIcon src="img/icons/search.png" />
-                    </SearchWrapper>
-                    <FollowedButton>
-                        <FollowedImg type="image/svg+xml" data="img/icons/follow.svg" />
-                        <FollowedButtonText>Followed</FollowedButtonText>
-                        <FollowedArrowDown type="image/svg+xml" data="img/icons/arrow-down.svg"/>
-                    </FollowedButton>
-                </ResumeWorkOptions>
-            </ResumeWorkHeaderContainer>
-            <Works />
-        </ContentWrapper>
-    );
+  return (
+    <ContentWrapper>
+      <LatestPublications />
+      <LabelHeaderContainer>
+        <LabelText>Workspaces</LabelText>
+      </LabelHeaderContainer>
+      <Workspaces />
+      <ResumeWorkHeaderContainer>
+        <LabelText>Resume your work</LabelText>
+        <ResumeWorkOptions>
+          <SearchWrapper>
+            <SearchInput onChange={inputChangeHandler} type="text" placeholder="Filter by title..." />
+            <SearchIcon src="img/icons/search.png" />
+          </SearchWrapper>
+          <FollowedButton>
+            <FollowedImg type="image/svg+xml" data="img/icons/follow.svg" />
+            <FollowedButtonText>Followed</FollowedButtonText>
+            <FollowedArrowDown type="image/svg+xml" data="img/icons/arrow-down.svg" />
+          </FollowedButton>
+        </ResumeWorkOptions>
+      </ResumeWorkHeaderContainer>
+      <Works />
+    </ContentWrapper>
+  );
 }
 
 export default Content;
