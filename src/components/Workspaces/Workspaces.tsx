@@ -16,18 +16,20 @@ const CustomCarousel = styled(Carousel)`
 
 function Workspaces() {
 
+    const itemsCount = 7;
+
     return (
         <ItemsContainer>
             <CustomCarousel itemWidth={250} plugins={[
-                'infinite',
-                'fastSwipe',
                 {
                     resolve: slidesToShowPlugin,
                     options: {
-                        numberOfSlides: 10
+                        numberOfSlides: itemsCount
                     }
                 },
             ]}>
+                <WorkspaceItem />
+                <WorkspaceItem />
                 <WorkspaceItem />
                 <WorkspaceItem />
                 <WorkspaceItem />
