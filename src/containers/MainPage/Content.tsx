@@ -3,6 +3,7 @@ import Works from "../../components/Works/Works";
 import LatestPublications from "../../components/Publications/LatestPublications";
 import Workspaces from "../../components/Workspaces/Workspaces";
 import Color from "../../shared/styleHelpers/Colors";
+import { useState } from "react";
 
 const ContentWrapper = styled.div`
   width: calc(100% - 300px);
@@ -86,8 +87,10 @@ const FollowedImg = styled(FollowedFilterColor)``;
 const FollowedArrowDown = styled(FollowedFilterColor)``;
 
 function Content() {
+  const [inputText, setInputText] = useState("");
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const text = e.target.value;
+    setInputText(text);
   }
 
   return (
@@ -111,7 +114,7 @@ function Content() {
           </FollowedButton>
         </ResumeWorkOptions>
       </ResumeWorkHeaderContainer>
-      <Works />
+      <Works filterText={inputText} />
     </ContentWrapper>
   );
 }

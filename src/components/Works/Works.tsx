@@ -4,6 +4,7 @@ import { getPosts, IPost } from "../../api/Post";
 import Work from "./elements/Work";
 import ReactPaginate from 'react-paginate';
 import Color from "../../shared/styleHelpers/Colors";
+import { filter } from "../../helpers/Filter";
 
 const Container = styled.div`
     .pagination {
@@ -44,7 +45,9 @@ const Container = styled.div`
 const ItemContainer = styled.div``;
 const WorksPagination = styled(ReactPaginate)``;
 
-interface IProps{}
+interface IProps {
+    filterText: string;
+}
 interface IState 
 {
     data: any;
@@ -81,9 +84,10 @@ export default class Works extends React.Component<IProps, IState>
     render()
     {
         const items: any = [];
+        const filteredItems = filter(this.state.data, 'title', this.props.filterText);
         const itemsPerPage = this.state.perPage;
         const offset = this.state.offset;
-        const total = this.state.data.length;
+        const total = filteredItems.length;
         const pageCount = Math.ceil(total / itemsPerPage);
         
         let handlePageClick = (data: any) => {
@@ -92,7 +96,7 @@ export default class Works extends React.Component<IProps, IState>
             this.setState({ offset: offsetToSet });
         };
         
-        const itemsToTake = this.state.data.slice(offset, itemsPerPage + offset);
+        const itemsToTake = filteredItems.slice(offset, itemsPerPage + offset);
         itemsToTake.forEach((post: IPost) => {
             items.push(<Work key={post.id} post={post}/>);
         });        
