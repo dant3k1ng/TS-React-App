@@ -46,8 +46,8 @@ const SeeProfileText = styled.button`
 interface IProps {
     filterText: string;
 }
-function Account(props: IProps) 
-{
+
+function Account(props: IProps) {
     const userName = useSelector((state: any) => state?.user?.name);
 
     return (
@@ -60,11 +60,11 @@ function Account(props: IProps)
                 </UserData>
             </UserItem>
             <Item>
-                <Image src="./img/icons/privacy.svg" alt="publications"/>
+                <Image src="./img/icons/privacy.svg" alt="publications" />
                 <Text>Privacy</Text>
             </Item>
             <Item>
-                <Image src="./img/icons/settings.svg" alt="publications"/>
+                <Image src="./img/icons/settings.svg" alt="publications" />
                 <Text>Settings</Text>
             </Item>
         </ItemsContainer>

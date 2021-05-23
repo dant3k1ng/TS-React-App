@@ -41,7 +41,7 @@ function Header() {
                 <Home />
             </SidebarHeaderContainer>
             <SearchContainer>
-                <Search/>
+                <Search />
             </SearchContainer>
             <FastNavContainer>
                 <FastNav />

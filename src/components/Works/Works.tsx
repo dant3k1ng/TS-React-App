@@ -48,16 +48,16 @@ const WorksPagination = styled(ReactPaginate)``;
 interface IProps {
     filterText: string;
 }
-interface IState 
-{
+
+interface IState {
     data: any;
     perPage: number;
     offset: number;
 }
+
 export default class Works extends React.Component<IProps, IState>
 {
-    constructor(props: IProps)
-    {
+    constructor(props: IProps) {
         super(props);
 
         this.state = {
@@ -67,46 +67,43 @@ export default class Works extends React.Component<IProps, IState>
         };
     }
 
-    componentDidMount()
-    {
+    componentDidMount() {
         this.getData();
     }
 
-    getData()
-    {
+    getData() {
         getPosts()
             .then(response => response.json())
             .then(data => {
-                this.setState({data: data});
+                this.setState({ data: data });
             });
     }
 
-    render()
-    {
+    render() {
         const items: any = [];
         const filteredItems = filter(this.state.data, 'title', this.props.filterText);
         const itemsPerPage = this.state.perPage;
         const offset = this.state.offset;
         const total = filteredItems.length;
         const pageCount = Math.ceil(total / itemsPerPage);
-        
+
         let handlePageClick = (data: any) => {
             let selected = data.selected;
-            let offsetToSet = Math.ceil(selected * itemsPerPage); 
+            let offsetToSet = Math.ceil(selected * itemsPerPage);
             this.setState({ offset: offsetToSet });
         };
-        
+
         const itemsToTake = filteredItems.slice(offset, itemsPerPage + offset);
         itemsToTake.forEach((post: IPost) => {
-            items.push(<Work key={post.id} post={post}/>);
-        });        
+            items.push(<Work key={post.id} post={post} />);
+        });
 
         return (
             <Container>
                 <ItemContainer>
                     {items}
                 </ItemContainer>
-                <WorksPagination 
+                <WorksPagination
                     previousLabel={'PREVIOUS'}
                     nextLabel={'NEXT'}
                     breakLabel={'...'}
@@ -117,7 +114,7 @@ export default class Works extends React.Component<IProps, IState>
                     onPageChange={handlePageClick}
                     containerClassName={'pagination'}
                     activeClassName={'active'}
-                    />
+                />
             </Container>
         );
     }

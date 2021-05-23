@@ -34,7 +34,7 @@ function ContentFooter() {
     return (
         <ContentFooterContainer>
             <Date className="date">{date}</Date>
-            <AuthorImage src="img/avatar.jpg" alt="author"/>
+            <AuthorImage src="img/avatar.jpg" alt="author" />
             <AuthorName className="author-name">{authorName}</AuthorName>
         </ContentFooterContainer>
     );

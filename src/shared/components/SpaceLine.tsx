@@ -7,7 +7,6 @@ const Space = styled.div`
     margin: 10px 0;
 `;
 
-export default function SpaceLine()
-{
+export default function SpaceLine() {
     return <Space />
 }

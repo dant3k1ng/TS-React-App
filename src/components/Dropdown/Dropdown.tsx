@@ -41,13 +41,13 @@ function Dropdown() {
 
     return (
         <DropdownWrapper>
-            <Search onChangeHandler={inputChangeHandler}/>
+            <Search onChangeHandler={inputChangeHandler} />
 
             <Title>Platform</Title>
-            <Platform filterText={inputText}/>
+            <Platform filterText={inputText} />
 
             <Title>Workspaces</Title>
-            <Workspaces filterText={inputText}/>
+            <Workspaces filterText={inputText} />
 
             {
                 isLoggedIn ?
@@ -55,7 +55,7 @@ function Dropdown() {
                         <SpaceLine />
 
                         <Title>Account</Title>
-                        <Account filterText={inputText}/>
+                        <Account filterText={inputText} />
 
                         <SpaceLine />
                         <Logout />

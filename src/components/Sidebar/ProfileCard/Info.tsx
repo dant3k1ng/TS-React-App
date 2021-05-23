@@ -31,8 +31,7 @@ const CompanyName = styled.span`
     padding: 5px 0;
 `;
 
-export default function Info() 
-{
+export default function Info() {
     const user = useSelector((state: any) => state.user);
 
     return (

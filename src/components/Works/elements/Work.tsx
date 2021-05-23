@@ -40,21 +40,20 @@ const UserInfo = styled.span`
     color: ${Color.gray};
 `;
 
-interface IProps
-{
+interface IProps {
     post: IPost;
 }
-export default function Work(props: IProps)
-{
+
+export default function Work(props: IProps) {
     return (
         <ItemContainer>
             <Title>{props.post.title}</Title>
             <Content>{props.post.body}</Content>
             <Footer>
                 <CompanyName>Subsid. corp.</CompanyName>
-                <Dot/>
+                <Dot />
                 <JobType>Corporate</JobType>
-                <Dot/>
+                <Dot />
                 <UserInfo>Updated 3 days ago by John Doe</UserInfo>
             </Footer>
         </ItemContainer>

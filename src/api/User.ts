@@ -1,3 +1,7 @@
+export const getUser = () => {
+    return fetch("https://jsonplaceholder.typicode.com/users/1")
+}
+
 export interface IUserAddress {
     street: string;
     suite: string;
@@ -10,6 +14,7 @@ export interface IUserCompany {
     catchPhrase: string;
     bs: string;
 }
+
 export interface IUser {
     id: number;
     name: string;
@@ -18,7 +23,4 @@ export interface IUser {
     phone: string;
     website: string;
     company: IUserCompany;
-}
-export const getUser = () => {
-    return fetch("https://jsonplaceholder.typicode.com/users/1")
 }

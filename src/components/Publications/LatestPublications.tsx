@@ -94,28 +94,27 @@ const ContentFooterWrapper = styled.div`
 `;
 
 function LatestPublications() {
-
     return (
         <LatestPublicationsWrapper>
             <ImageContainer>
-                <BigImage src="img/publications.png" alt="publications main"/>
+                <BigImage src="img/publications.png" alt="publications main" />
                 <ImageAbsoluteContainer>
                     <ImageTitle>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam enim odio, ullamcorper vitae semper eget, aliquam eget est.
                     </ImageTitle>
                     <ContentFooterWrapper>
-                        <ContentFooter/>
+                        <ContentFooter />
                     </ContentFooterWrapper>
                 </ImageAbsoluteContainer>
             </ImageContainer>
             <ContentContainer>
                 <TitleWrapper>
-                    <Title/>
+                    <Title />
                 </TitleWrapper>
                 <Items>
-                    <PublicationItem/>
-                    <PublicationItem/>
-                    <PublicationItem/>
+                    <PublicationItem />
+                    <PublicationItem />
+                    <PublicationItem />
                 </Items>
                 <SeeMoreTextWrapper>
                     <SeeMore>See more publications</SeeMore>

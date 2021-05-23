@@ -26,6 +26,7 @@ const SearchInput = styled.input`
 interface IProps {
   onChangeHandler: React.ChangeEventHandler;
 }
+
 function Search(props: IProps) {
   return (
     <SearchWrapper>

@@ -12,13 +12,12 @@ const Card = styled.div`
     padding: 12px 0;
 `;
 
-export default function ProfileCard()
-{
+export default function ProfileCard() {
     return (
         <Card>
             <Info />
-            <SpaceLine/>
-            <Footer/>
+            <SpaceLine />
+            <Footer />
         </Card>
     );
 }

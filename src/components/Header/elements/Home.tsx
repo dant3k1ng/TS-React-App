@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FC } from 'react';
-import useDropdown from 'react-dropdown-hook'; 
+import useDropdown from 'react-dropdown-hook';
 import Dropdown from "../../Dropdown/Dropdown";
 
 const HomeWrapper = styled.div`
@@ -38,7 +38,7 @@ const HomeText = styled.span`
     font-weight: 900;
 `;
 
-const Home : FC = () => {
+const Home: FC = () => {
     const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
 
     return (
@@ -51,10 +51,10 @@ const Home : FC = () => {
                 </ArrowImagePanel>
             </InteractivePanel>
 
-            {dropdownOpen && 
-            <>
-                <Dropdown/>
-            </>}
+            {dropdownOpen &&
+                <>
+                    <Dropdown />
+                </>}
 
         </HomeWrapper>
     );

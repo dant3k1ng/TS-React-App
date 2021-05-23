@@ -18,7 +18,7 @@ interface IProps {
   children: JSX.Element;
 }
 
-const MainLayout = ( { children }: IProps ) => {
+const MainLayout = ({ children }: IProps) => {
   return (
     <MainPageWrapper>
       <Header />

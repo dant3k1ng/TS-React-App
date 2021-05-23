@@ -30,21 +30,20 @@ const ItemText = styled.span`
     color: ${Color.darkBlue};
 `;
 
-export default function Elements() 
-{
+export default function Elements() {
     return (
         <ItemsContainer>
             <Item>
-                <ItemImage src="./img/icons/publications.svg" alt="Publications"/>
+                <ItemImage src="./img/icons/publications.svg" alt="Publications" />
                 <ItemText>Publications</ItemText>
             </Item>
             <Item>
-                <ItemImage src="./img/icons/ecosystem.svg" alt="Ecosystems"/>
+                <ItemImage src="./img/icons/ecosystem.svg" alt="Ecosystems" />
                 <ItemText>Ecosystems</ItemText>
             </Item>
             <SidebarLink to="/entities">
                 <Item>
-                    <ItemImage src="./img/icons/entities2.svg" alt="Entities"/>
+                    <ItemImage src="./img/icons/entities2.svg" alt="Entities" />
                     <ItemText>Entities</ItemText>
                 </Item>
             </SidebarLink>

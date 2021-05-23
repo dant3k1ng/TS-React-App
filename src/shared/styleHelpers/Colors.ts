@@ -3,7 +3,7 @@ const Color = {
     darkBlue: "#062769",
 
     darkWhite: "#ECECEC",
-    
+
     gray: "#909090",
     darkGray: "#363636",
 

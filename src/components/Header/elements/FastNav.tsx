@@ -42,7 +42,6 @@ const FastNavImage = styled.img`
 function FastNav() {
   return (
     <FastNavWrapper>
-
       <ImageHolder>
         <FastNavImage src="img/icons/house.png" />
       </ImageHolder>

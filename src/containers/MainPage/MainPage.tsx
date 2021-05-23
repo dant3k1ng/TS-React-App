@@ -19,7 +19,7 @@ function MainPage() {
 
   return (
     <MainLayout >
-      <Content/>
+      <Content />
     </MainLayout>
   );
 }

@@ -20,8 +20,7 @@ const Text = styled.span`
     padding-left: 12px;
 `;
 
-function Logout() 
-{
+function Logout() {
     const dispatch = useDispatch();
 
     return (

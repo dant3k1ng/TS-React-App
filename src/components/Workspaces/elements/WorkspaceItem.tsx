@@ -78,16 +78,16 @@ function WorkspaceItem() {
     return (
         <ItemContainer>
             <HeaderPictureContainer>
-                <img src="img/man-5710164_640.jpg" alt="item"/>
+                <img src="img/man-5710164_640.jpg" alt="item" />
             </HeaderPictureContainer>
             <Content>
                 <TitleContainer>
-                    <TitleImage src="img/publications.png"/>
+                    <TitleImage src="img/publications.png" />
                     <Title>Client contract</Title>
                 </TitleContainer>
                 <InfoContainer>
                     <InfoBox>Contract</InfoBox>
-                    <Dot/>
+                    <Dot />
                     <InfoBox>150 users</InfoBox>
                 </InfoContainer>
                 <FooterDate>Last update 2 days ago</FooterDate>
@@ -96,4 +96,4 @@ function WorkspaceItem() {
     );
 }
 
-export default  WorkspaceItem;
+export default WorkspaceItem;

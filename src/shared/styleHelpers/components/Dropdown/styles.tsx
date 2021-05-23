@@ -12,6 +12,7 @@ export const Item = styled.div`
     }
 `;
 export const Image = styled.img``;
+
 export const Text = styled.span`
     font-weight: 900;
     color: ${Color.darkBlue};

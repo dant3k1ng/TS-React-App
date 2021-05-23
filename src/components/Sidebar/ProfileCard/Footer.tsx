@@ -52,8 +52,7 @@ const Button = styled.span`
     }
 `;
 
-export default function Footer() 
-{
+export default function Footer() {
     return (
         <ItemsContainer>
             <Item>

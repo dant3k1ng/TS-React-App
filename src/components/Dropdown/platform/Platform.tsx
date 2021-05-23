@@ -9,8 +9,8 @@ const ItemsContainer = styled.div`
 interface IProps {
     filterText: string;
 }
-function Platform(props: IProps) {
 
+function Platform(props: IProps) {
     const items = filter(getItems(), 'text', props.filterText);
 
     return (
@@ -28,7 +28,6 @@ function Platform(props: IProps) {
 }
 
 const getItems = () => {
-
     return [
         {
             url: "#",

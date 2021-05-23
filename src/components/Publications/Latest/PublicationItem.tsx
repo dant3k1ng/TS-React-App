@@ -36,10 +36,10 @@ const Title = styled.span`
 function PublicationItem() {
     return (
         <PublicationContainer>
-            <Image src="img/man-5710164_640.jpg" alt="item"/>
+            <Image src="img/man-5710164_640.jpg" alt="item" />
             <Content>
                 <Title>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam enim odio, ullamcorper vitae semper eget, aliquam eget est.</Title>
-                <ContentFooter/>
+                <ContentFooter />
             </Content>
         </PublicationContainer>
     );
