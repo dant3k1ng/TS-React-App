@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import SpaceLine from "../../shared/components/SpaceLine";
+import { DropdownLink } from "../../shared/styleHelpers/components/Dropdown/styles";
 import Footer from "./ProfileCard/Footer";
 import Info from "./ProfileCard/Info";
 
@@ -15,8 +16,10 @@ const Card = styled.div`
 export default function ProfileCard() {
     return (
         <Card>
-            <Info />
-            <SpaceLine />
+            <DropdownLink to="/profile">
+                <Info />
+                <SpaceLine />
+            </DropdownLink>
             <Footer />
         </Card>
     );

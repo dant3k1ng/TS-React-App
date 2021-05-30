@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Color from "../../../shared/styleHelpers/Colors";
-import { Item, Image, Text } from "../../../shared/styleHelpers/components/Dropdown/styles";
+import { Item, Image, Text, DropdownLink } from "../../../shared/styleHelpers/components/Dropdown/styles";
 import FontSize from "../../../shared/styleHelpers/FontSizes";
 
 const ItemsContainer = styled.div`
@@ -41,6 +41,10 @@ const SeeProfileText = styled.button`
     width: max-content;
     font-weight: 900 !important;
     font-size: ${FontSize[85]};
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 interface IProps {
@@ -56,7 +60,9 @@ function Account(props: IProps) {
                 <UserImage src="img/avatar.jpg" alt="user" />
                 <UserData>
                     <Username>{userName}</Username>
-                    <SeeProfileText>See profile</SeeProfileText>
+                    <DropdownLink to="/profile">
+                        <SeeProfileText>See profile</SeeProfileText>
+                    </DropdownLink>
                 </UserData>
             </UserItem>
             <Item>
