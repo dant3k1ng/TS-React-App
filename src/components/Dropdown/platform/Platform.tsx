@@ -18,7 +18,7 @@ function Platform(props: IProps) {
         <ItemsContainer>
             {
                 items.map(function(item, index) {
-                    if (item.url == "#" || item.url == "") {
+                    if (item.url === "#" || item.url === "") {
                         return (
                             <Item key={index}>
                                 <item.ImageComponent />
@@ -27,8 +27,8 @@ function Platform(props: IProps) {
                         );
                     } else {
                         return (
-                            <DropdownLink to={item.url}>
-                                <Item key={index}>
+                            <DropdownLink key={index} to={item.url}>
+                                <Item>
                                     <item.ImageComponent />
                                     <Text>{item.text}</Text>
                                 </Item>
