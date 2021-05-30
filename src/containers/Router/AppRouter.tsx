@@ -6,6 +6,7 @@ const AppRouter = () => (
         <Switch>
             <Route exact path="/" component={MainPage} />
             <Route exact path="/entities" component={MainPage} />
+            <Route exact path="/profile" component={MainPage} />
         </Switch>
     </main>
 );

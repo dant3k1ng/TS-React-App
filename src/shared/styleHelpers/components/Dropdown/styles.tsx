@@ -19,6 +19,6 @@ export const Text = styled.span`
     margin-left: 12px;
 `;
 
-export const SidebarLink = styled(Link)`
+export const DropdownLink = styled(Link)`
     text-decoration: none;
 `;

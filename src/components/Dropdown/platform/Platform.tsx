@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { filter } from "../../../helpers/Filter";
 import { Item, Image, Text } from "../../../shared/styleHelpers/components/Dropdown/styles";
+import { DropdownLink } from "../../../shared/styleHelpers/components/Dropdown/styles";
 
 const ItemsContainer = styled.div`
     padding: 0 12px;
@@ -16,12 +17,25 @@ function Platform(props: IProps) {
     return (
         <ItemsContainer>
             {
-                items.map((item, index) => (
-                    <Item key={index}>
-                        <item.ImageComponent />
-                        <Text>{item.text}</Text>
-                    </Item>
-                ))
+                items.map(function(item, index) {
+                    if (item.url == "#" || item.url == "") {
+                        return (
+                            <Item key={index}>
+                                <item.ImageComponent />
+                                <Text>{item.text}</Text>
+                            </Item>
+                        );
+                    } else {
+                        return (
+                            <DropdownLink to={item.url}>
+                                <Item key={index}>
+                                    <item.ImageComponent />
+                                    <Text>{item.text}</Text>
+                                </Item>
+                            </DropdownLink>
+                        );
+                    }
+                })
             }
         </ItemsContainer>
     );
@@ -30,7 +44,7 @@ function Platform(props: IProps) {
 const getItems = () => {
     return [
         {
-            url: "#",
+            url: "/",
             text: "Home",
             ImageComponent: () => <Image src="./img/icons/house2.svg" alt="home" />,
         },

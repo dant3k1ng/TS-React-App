@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Color from "../../shared/styleHelpers/Colors";
-import { SidebarLink } from "../../shared/styleHelpers/components/Dropdown/styles";
+import { DropdownLink } from "../../shared/styleHelpers/components/Dropdown/styles";
 
 const ItemsContainer = styled.div`
     width: 100%;
@@ -41,12 +41,12 @@ export default function Elements() {
                 <ItemImage src="./img/icons/ecosystem.svg" alt="Ecosystems" />
                 <ItemText>Ecosystems</ItemText>
             </Item>
-            <SidebarLink to="/entities">
+            <DropdownLink to="/entities">
                 <Item>
                     <ItemImage src="./img/icons/entities2.svg" alt="Entities" />
                     <ItemText>Entities</ItemText>
                 </Item>
-            </SidebarLink>
+            </DropdownLink>
         </ItemsContainer>
     );
 }
