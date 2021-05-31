@@ -14,6 +14,13 @@ const SidebarWrapper = styled.div`
   width: 300px;
 `;
 
+export const ContentWrapper = styled.div`
+  width: calc(100% - 300px);
+  padding-right: 64px;
+  display: flex;
+  flex-direction: column;
+`;
+
 interface IProps {
   children: JSX.Element;
 }

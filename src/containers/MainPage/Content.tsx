@@ -4,13 +4,7 @@ import LatestPublications from "../../components/Publications/LatestPublications
 import Workspaces from "../../components/Workspaces/Workspaces";
 import Color from "../../shared/styleHelpers/Colors";
 import { useState } from "react";
-
-const ContentWrapper = styled.div`
-  width: calc(100% - 300px);
-  padding-right: 64px;
-  display: flex;
-  flex-direction: column;
-`;
+import { ContentWrapper } from "../Layout/MainLayout";
 
 const LabelText = styled.span`
   font-size: 1.25rem;
