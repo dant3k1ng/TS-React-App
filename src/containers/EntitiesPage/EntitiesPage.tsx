@@ -5,6 +5,7 @@ import { getEntities } from "../../api/Entity";
 import EntityMosaic from "../../components/Entity/types/EntityMosaic";
 import EntityRow from "../../components/Entity/types/EntityRow";
 import { IEntity } from "../../entities/Entity";
+import { Sort } from "../../helpers/Sortable";
 import { DefaultActionButton } from "../../shared/styleHelpers/components/EditButton";
 import MainLayout from "../Layout/MainLayout";
 import { EntityViewType } from "./entities/EntityViewType";
@@ -15,6 +16,7 @@ interface IProps {}
 interface IState {
   view: EntityViewType,
   entities: IEntity[] | [],
+  sort: Sort,
 }
 
 class EntitiesPage extends React.Component<IProps, IState>
@@ -26,6 +28,7 @@ class EntitiesPage extends React.Component<IProps, IState>
     this.state = {
       view: EntityViewType.Mosaic,
       entities: [],
+      sort: Sort.A_TO_Z,
     };
   }
 
@@ -72,12 +75,26 @@ class EntitiesPage extends React.Component<IProps, IState>
   currentViewTypeButtonClassHelper(layout: EntityViewType)
   {
     const currentViewType = this.state.view;
-    return currentViewType == layout ? "active" : "";
+    return currentViewType === layout ? "active" : "";
   }
 
   getFilteredItems()
   {
-    return this.state.entities;;
+    let items = this.state.entities;
+
+    if(this.state.sort !== Sort.NONE)
+    {
+      items.sort((a, b) => {
+        let titleA = a.title.toLowerCase(), 
+            titleB = b.title.toLowerCase();
+
+        if(titleA < titleB) { return this.state.sort === Sort.A_TO_Z ? -1 : 1; }
+        if(titleA > titleB) { return this.state.sort === Sort.A_TO_Z ? 1 : -1; }
+        return 0;
+      })
+    }    
+
+    return items;
   }
 
   contentByLayout()
