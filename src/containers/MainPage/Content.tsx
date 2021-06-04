@@ -4,7 +4,6 @@ import LatestPublications from "../../components/Publications/LatestPublications
 import Workspaces from "../../components/Workspaces/Workspaces";
 import Color from "../../shared/styleHelpers/Colors";
 import { useState } from "react";
-import { ContentWrapper } from "../Layout/MainLayout";
 
 const LabelText = styled.span`
   font-size: 1.25rem;
@@ -88,7 +87,7 @@ function Content() {
   }
 
   return (
-    <ContentWrapper>
+    <>
       <LatestPublications />
       <LabelHeaderContainer>
         <LabelText>Workspaces</LabelText>
@@ -109,7 +108,7 @@ function Content() {
         </ResumeWorkOptions>
       </ResumeWorkHeaderContainer>
       <Works filterText={inputText} />
-    </ContentWrapper>
+    </>
   );
 }
 

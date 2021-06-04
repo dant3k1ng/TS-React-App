@@ -1,6 +1,5 @@
-import React from "react";
 import { GetLoggedUser } from "../../helpers/User";
-import MainLayout, { ContentWrapper } from "../Layout/MainLayout";
+import MainLayout from "../Layout/MainLayout";
 import Fees from "./Profile/Fees";
 import Header from "./Profile/Header";
 import Informations from "./Profile/Informations";
@@ -14,14 +13,14 @@ const ProfilePage = () => {
 
   return (
     <MainLayout>
-      <ContentWrapper>
+      <>
         <Header user={user}/>
         <Informations/>
         <Services/>
         <Proposals/>
         <InternalReviews/>
         <Fees/>
-      </ContentWrapper>
+      </>
     </MainLayout>
   )
 }

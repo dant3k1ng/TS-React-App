@@ -33,7 +33,9 @@ const MainLayout = ({ children }: IProps) => {
         <SidebarWrapper>
           <Sidebar />
         </SidebarWrapper>
-        {children}
+        <ContentWrapper>
+          {children}
+        </ContentWrapper>
       </Container>
     </MainPageWrapper>
   );
