@@ -10,7 +10,8 @@ const EntityWrapper = styled.div`
     border-radius: 4px;
     padding: 8px;
     width: 100%;
-    max-width: 320px;
+    height: max-content;
+    margin: 5px;
 `;
 
 const ImageWrapper = styled.div`
