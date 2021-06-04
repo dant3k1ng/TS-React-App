@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Color from "../../../shared/styleHelpers/Colors";
 import { Dot } from "../../../shared/components/Dot";
 import FontSize from "../../../shared/styleHelpers/FontSizes";
+import { IWorkspace } from "../../../entities/Workspace";
 
 const ItemContainer = styled.div`
     box-shadow: 0px 2px 3px 0px #cccccc;
@@ -73,7 +74,11 @@ const FooterDate = styled.div`
     align-items: center;
 `;
 
-function WorkspaceItem() {
+interface IProps {
+    workspace: IWorkspace;
+}
+
+function WorkspaceItem(props: IProps) {
 
     return (
         <ItemContainer>
@@ -82,15 +87,15 @@ function WorkspaceItem() {
             </HeaderPictureContainer>
             <Content>
                 <TitleContainer>
-                    <TitleImage src="img/publications.png" />
-                    <Title>Client contract</Title>
+                    <TitleImage src={props.workspace.image} />
+                    <Title>{props.workspace.title}</Title>
                 </TitleContainer>
                 <InfoContainer>
-                    <InfoBox>Contract</InfoBox>
+                    <InfoBox>{props.workspace.type}</InfoBox>
                     <Dot />
-                    <InfoBox>150 users</InfoBox>
+                    <InfoBox>{props.workspace.userCount}</InfoBox>
                 </InfoContainer>
-                <FooterDate>Last update 2 days ago</FooterDate>
+                <FooterDate>Last update {props.workspace.lastUpdate}</FooterDate>
             </Content>
         </ItemContainer>
     );

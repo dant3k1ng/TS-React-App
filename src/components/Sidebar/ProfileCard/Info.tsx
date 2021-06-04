@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import Color from "../../../shared/styleHelpers/Colors";
 import FontSize from "../../../shared/styleHelpers/FontSizes";
+import { IGlobalState } from "../../../redux/reducers";
 
 const ImageContainer = styled.div`
     display: flex;
@@ -32,7 +33,7 @@ const CompanyName = styled.span`
 `;
 
 export default function Info() {
-    const user = useSelector((state: any) => state.user);
+    const user = useSelector((state: IGlobalState) => state.user);
 
     return (
         <div>

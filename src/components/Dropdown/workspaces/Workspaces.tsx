@@ -1,5 +1,8 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { IWorkspace } from "../../../entities/Workspace";
 import { filter } from "../../../helpers/Filter";
+import { IGlobalState } from "../../../redux/reducers";
 import { Item, Image, Text } from "../../../shared/styleHelpers/components/Dropdown/styles";
 
 const ItemsContainer = styled.div`
@@ -11,50 +14,25 @@ interface IProps {
 }
 
 function Workspaces(props: IProps) {
-    const items = filter(getItems(), 'text', props.filterText);
+    let items = useSelector((state: IGlobalState) => state.workspaces);
+    if (items == null) {
+        items = [];
+    }
+
+    const filteredItems = filter(items, 'title', props.filterText);
 
     return (
         <ItemsContainer>
             {
-                items.map((item, index) => (
+                filteredItems.map((item: IWorkspace, index) => (
                     <Item key={index}>
-                        <item.ImageComponent />
-                        <Text>{item.text}</Text>
+                        <Image src={item.image}/>
+                        <Text>{item.title}</Text>
                     </Item>
                 ))
             }
         </ItemsContainer>
     );
-}
-
-const getItems = () => {
-    return [
-        {
-            url: "#",
-            text: "Client contract",
-            ImageComponent: () => <Image src="./img/icons/entities2.svg" alt="client contract" />,
-        },
-        {
-            url: "#",
-            text: "Supplier contract",
-            ImageComponent: () => <Image src="./img/icons/entities2.svg" alt="supplier contract" />,
-        },
-        {
-            url: "#",
-            text: "Corporate",
-            ImageComponent: () => <Image src="./img/icons/entities2.svg" alt="corporate" />,
-        },
-        {
-            url: "#",
-            text: "Group Norms",
-            ImageComponent: () => <Image src="./img/icons/entities2.svg" alt="group norms" />,
-        },
-        {
-            url: "#",
-            text: "Real estate contracts",
-            ImageComponent: () => <Image src="./img/icons/entities2.svg" alt="real estate contracts" />,
-        },
-    ];
 }
 
 export default Workspaces;
