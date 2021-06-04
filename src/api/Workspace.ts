@@ -1,4 +1,6 @@
-export const getWorkspaces = () => {
+import { IWorkspace } from "../entities/Workspace";
+
+export const getWorkspaces = (): Promise<IWorkspace[]> => {
     return new Promise((resolve, reject) => {
         resolve(staticData)
     });
