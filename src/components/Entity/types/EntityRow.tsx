@@ -11,12 +11,13 @@ const EntityWrapper = styled.div`
     padding: 8px;
     width: 100%;
     height: max-content;
+    margin-bottom: 5px;
 `;
 
 const ImageWrapper = styled.div`
-    width: 80px;
-    min-width: 80px;
-    height: 80px;
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
 `;
 
 const Image = styled.img`
@@ -46,7 +47,7 @@ interface IProps {
     entity: IEntity;
 }
 
-function EntityMosaic(props: IProps) 
+function EntityRow(props: IProps) 
 {
     return (
         <EntityWrapper>
@@ -61,4 +62,4 @@ function EntityMosaic(props: IProps)
     );
 }
 
-export default EntityMosaic;
+export default EntityRow;
