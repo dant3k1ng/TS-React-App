@@ -49,22 +49,22 @@ const getItems = () => {
             ImageComponent: () => <Image src="./img/icons/house2.svg" alt="home" />,
         },
         {
-            url: "#",
+            url: "/publications",
             text: "Publications",
             ImageComponent: () => <Image src="./img/icons/publications.svg" alt="publications" />,
         },
         {
-            url: "#",
+            url: "/people",
             text: "People",
             ImageComponent: () => <Image src="./img/icons/people.svg" alt="people" />,
         },
         {
-            url: "#",
+            url: "/entities",
             text: "Entities",
             ImageComponent: () => <Image src="./img/icons/entities2.svg" alt="entities" />,
         },
         {
-            url: "#",
+            url: "/administration",
             text: "Administration",
             ImageComponent: () => <Image src="./img/icons/administration.svg" alt="administration" />,
         },

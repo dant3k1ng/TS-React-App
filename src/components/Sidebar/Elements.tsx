@@ -33,14 +33,18 @@ const ItemText = styled.span`
 export default function Elements() {
     return (
         <ItemsContainer>
-            <Item>
-                <ItemImage src="./img/icons/publications.svg" alt="Publications" />
-                <ItemText>Publications</ItemText>
-            </Item>
-            <Item>
-                <ItemImage src="./img/icons/ecosystem.svg" alt="Ecosystems" />
-                <ItemText>Ecosystems</ItemText>
-            </Item>
+            <DropdownLink to="/publications">
+                <Item>
+                    <ItemImage src="./img/icons/publications.svg" alt="Publications" />
+                    <ItemText>Publications</ItemText>
+                </Item>
+            </DropdownLink>
+            <DropdownLink to="/eco-system">
+                <Item>
+                    <ItemImage src="./img/icons/ecosystem.svg" alt="Ecosystems" />
+                    <ItemText>Ecosystems</ItemText>
+                </Item>
+            </DropdownLink>
             <DropdownLink to="/entities">
                 <Item>
                     <ItemImage src="./img/icons/entities2.svg" alt="Entities" />
