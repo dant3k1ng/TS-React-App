@@ -22,6 +22,22 @@ export const EntitiesHeaderTitle = styled.span`
 export const EntitiesHeaderBottom = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: ${Color.gray};
+`;
+
+export const BottomLeft = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+
+export const BottomRight = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 `;
 
 export const ViewTypeButton = styled(DefaultActionButton)`
@@ -54,4 +70,35 @@ export const RowLayout = styled.div`
   display: flex;
   flex-direction: column;
   margin: 5px 0;
+`;
+
+export const SearchWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100%;
+    position: relative;
+`;
+
+export const SearchInput = styled.input`
+    border-radius: 3px;
+    border: 1px solid #E8E8E8;
+    font-size: 1.1em;
+    padding: 6px 32px 6px 6px;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+`;
+
+export const SearchIcon = styled.img`
+  position: absolute;
+  right: 10px;
+  top: 8px;
+`;
+
+export const ShareText = styled.span`
+    padding: 0 2px;
 `;
