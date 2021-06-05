@@ -8,6 +8,8 @@ const Container = styled.div`
   padding-top: 16px;
   display: flex;
   flex-direction: row;
+  position: relative;
+  top: 50px;
 `;
 
 const SidebarWrapper = styled.div`

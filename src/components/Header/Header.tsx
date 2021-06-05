@@ -8,8 +8,13 @@ const HeaderWrapper = styled.div`
     display: flex;
     flex-direction: row;
     height: 50px;
+    width: 100%;
+    z-index: 100;
     box-shadow: 2px 5px 10px #ECECEC;
     background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
 `;
 
 const SidebarHeaderContainer = styled.div`
