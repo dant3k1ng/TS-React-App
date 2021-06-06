@@ -1,4 +1,4 @@
-import { faBars, faCog, faEllipsisH, faFilter, faShare, faThLarge } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCog, faThLarge } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { getEntities } from "../../api/Entity";
@@ -15,11 +15,12 @@ import { EntityViewType } from "./entities/EntityViewType";
 import FullScreenButton from "./Buttons/FullScreenButton";
 import {
   EntitiesHeader, EntitiesHeaderBottom, EntitiesHeaderTop, EntitiesHeaderTitle, ViewTypeButton, MosaicLayout, RowLayout,
-  SearchWrapper, SearchInput, SearchIcon, BottomLeft, BottomRight, ShareText,
+  SearchWrapper, SearchInput, SearchIcon, BottomLeft, BottomRight, 
 } from "./styles/EntitiesPageStyles";
 import FiltersButton from "./Buttons/FiltersButton";
 import ShareButton from "./Buttons/ShareButton";
 import MoreButton from "./Buttons/MoreButton";
+import AllButton from "./Buttons/AllButton";
 
 interface IProps { }
 interface IState {
@@ -86,7 +87,7 @@ class EntitiesPage extends React.Component<IProps, IState>
             </EntitiesHeaderTop>
             <EntitiesHeaderBottom>
               <BottomLeft>
-                All
+                <AllButton/>
                 <MoreButton/>
                 <SeparateLine />
                 <SortButton onClickHandler={this.sortButtonClick} currentSort={this.state.sort} />
