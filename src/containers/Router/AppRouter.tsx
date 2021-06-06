@@ -1,5 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import AdministrationPage from '../AdministrationPage/AdministrationPage';
+import NotFoundPage from '../DefaultPage/404/NotFoundPage';
 import EcoSystemPage from '../EcoSystemPage/EcoSystemPage';
 import EntitiesPage from '../EntitiesPage/EntitiesPage';
 import MainPage from '../MainPage/MainPage';
@@ -21,6 +22,7 @@ const AppRouter = () => (
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/publications" component={PublicationsPage} />
             <Route exact path="/settings" component={SettingsPage} />
+            <Route component={NotFoundPage} />
         </Switch>
     </main>
 );
