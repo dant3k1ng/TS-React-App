@@ -25,7 +25,7 @@ function Logout() {
 
     return (
         <LogoutContainer onClick={() => dispatch(logout())}>
-            <img src="./img/icons/logout.svg" alt="logout" />
+            <img src="/img/icons/logout.svg" alt="logout" />
             <Text>Logout</Text>
         </LogoutContainer>
     )

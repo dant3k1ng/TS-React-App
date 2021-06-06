@@ -12,7 +12,7 @@ const staticData = [
         userCount: 150,
         type: "Contract",
         backgroundImageUrl: "",
-        image: "./img/icons/entities2.svg",
+        image: "/img/icons/entities2.svg",
         lastUpdate: "2 days ago"
     },
     {
@@ -20,7 +20,7 @@ const staticData = [
         userCount: 25,
         type: "Contract",
         backgroundImageUrl: "",
-        image: "./img/icons/entities2.svg",
+        image: "/img/icons/entities2.svg",
         lastUpdate: "2 days ago"
     },
     {
@@ -28,7 +28,7 @@ const staticData = [
         userCount: 25,
         type: "Corporate",
         backgroundImageUrl: "",
-        image: "./img/icons/entities2.svg",
+        image: "/img/icons/entities2.svg",
         lastUpdate: "2 days ago"
     },
     {
@@ -36,7 +36,7 @@ const staticData = [
         userCount: 25,
         type: "Norms",
         backgroundImageUrl: "",
-        image: "./img/icons/entities2.svg",
+        image: "/img/icons/entities2.svg",
         lastUpdate: "2 days ago"
     },
     {
@@ -44,7 +44,7 @@ const staticData = [
         userCount: 150,
         type: "Contract",
         backgroundImageUrl: "",
-        image: "./img/icons/entities2.svg",
+        image: "/img/icons/entities2.svg",
         lastUpdate: "2 days ago"
     }
 ];

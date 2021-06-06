@@ -22,11 +22,11 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'AppFont';
     /* src: url(${"./fonts/Open_Sans/OpenSans-Light.ttf"}); */
-    src: url(${"./fonts/Roboto/Roboto-Light.ttf"});
+    src: url(${"/fonts/Roboto/Roboto-Light.ttf"});
   }
 
   @font-face {
     font-family: 'AppFontBold';
-    src: url(${"./fonts/Roboto/Roboto-Bold.ttf"});
+    src: url(${"/fonts/Roboto/Roboto-Bold.ttf"});
   }
 `

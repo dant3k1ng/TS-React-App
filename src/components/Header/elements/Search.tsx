@@ -41,7 +41,7 @@ function Search() {
     <SearchWrapper>
       <SearchInput type="text" placeholder="Search legalcluster" />
       <SearchIconContainer>
-        <SearchIcon src="img/icons/search.png" />
+        <SearchIcon src="/img/icons/search.png" />
       </SearchIconContainer>
     </SearchWrapper>
   );

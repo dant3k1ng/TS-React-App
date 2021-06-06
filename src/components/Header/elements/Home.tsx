@@ -43,11 +43,11 @@ const Home: FC = () => {
 
     return (
         <HomeWrapper ref={wrapperRef}>
-            <HomeImage src="img/icons/house2.png" />
+            <HomeImage src="/img/icons/house2.png" />
             <InteractivePanel onClick={toggleDropdown}>
                 <HomeText>Home</HomeText>
                 <ArrowImagePanel>
-                    <ArrowImage src="img/icons/arrow-down.png" />
+                    <ArrowImage src="/img/icons/arrow-down.png" />
                 </ArrowImagePanel>
             </InteractivePanel>
 

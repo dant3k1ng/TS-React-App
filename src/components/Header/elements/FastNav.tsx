@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const FastNavWrapper = styled.div`
@@ -42,15 +43,21 @@ const FastNavImage = styled.img`
 function FastNav() {
   return (
     <FastNavWrapper>
-      <ImageHolder>
-        <FastNavImage src="img/icons/house.png" />
-      </ImageHolder>
-      <FilledImageHolder>
-        <FastNavImage src="img/icons/comments.png" />
-      </FilledImageHolder>
-      <FilledImageHolder>
-        <FastNavImage src="img/icons/bell.png" />
-      </FilledImageHolder>
+      <Link to="/">
+        <ImageHolder>
+          <FastNavImage src="/img/icons/house.png" />
+        </ImageHolder>
+      </Link>
+      <Link to="/user/comments">
+        <FilledImageHolder>
+          <FastNavImage src="/img/icons/comments.png" />
+        </FilledImageHolder>
+      </Link>
+      <Link to="/user/notifications">
+        <FilledImageHolder>
+          <FastNavImage src="/img/icons/bell.png" />
+        </FilledImageHolder>
+      </Link>
 
     </FastNavWrapper>
   );

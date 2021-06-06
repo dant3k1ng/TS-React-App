@@ -67,13 +67,13 @@ function Account(props: IProps) {
             </UserItem>
             <DropdownLink to="/privacy">
                 <Item>
-                    <Image src="./img/icons/privacy.svg" alt="publications" />
+                    <Image src="/img/icons/privacy.svg" alt="publications" />
                     <Text>Privacy</Text>
                 </Item>
             </DropdownLink>
             <DropdownLink to="/settings">
                 <Item>
-                    <Image src="./img/icons/settings.svg" alt="publications" />
+                    <Image src="/img/icons/settings.svg" alt="publications" />
                     <Text>Settings</Text>
                 </Item>
             </DropdownLink>

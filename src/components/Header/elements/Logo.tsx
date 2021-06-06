@@ -14,7 +14,7 @@ const LogoImage = styled.img`
 function Logo() {
   return (
     <LogoWrapper>
-      <LogoImage src="logo.png" alt="logo" />
+      <LogoImage src="/logo.png" alt="logo" />
     </LogoWrapper>
   );
 }

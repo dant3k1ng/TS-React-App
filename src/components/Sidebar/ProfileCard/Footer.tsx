@@ -57,23 +57,23 @@ export default function Footer() {
         <ItemsContainer>
             <Item>
                 <Content>
-                    <ItemImage src="./img/icons/network.png" alt="Your network" />
+                    <ItemImage src="/img/icons/network.png" alt="Your network" />
                     <ItemText>Your network</ItemText>
                 </Content>
                 <ActionBox>
                     <Button>
-                        <ItemImage src="./img/icons/network.svg" alt="Add to network" />
+                        <ItemImage src="/img/icons/network.svg" alt="Add to network" />
                     </Button>
                 </ActionBox>
             </Item>
             <Item>
                 <Content>
-                    <ItemImage src="./img/icons/publications.svg" alt="Your Publications" />
+                    <ItemImage src="/img/icons/publications.svg" alt="Your Publications" />
                     <ItemText>Your Publications</ItemText>
                 </Content>
                 <ActionBox>
                     <Button>
-                        <ItemImage src="./img/icons/plus.svg" alt="Add publication" />
+                        <ItemImage src="/img/icons/plus.svg" alt="Add publication" />
                     </Button>
                 </ActionBox>
             </Item>

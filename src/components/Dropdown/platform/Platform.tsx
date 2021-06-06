@@ -46,27 +46,27 @@ const getItems = () => {
         {
             url: "/",
             text: "Home",
-            ImageComponent: () => <Image src="./img/icons/house2.svg" alt="home" />,
+            ImageComponent: () => <Image src="/img/icons/house2.svg" alt="home" />,
         },
         {
             url: "/publications",
             text: "Publications",
-            ImageComponent: () => <Image src="./img/icons/publications.svg" alt="publications" />,
+            ImageComponent: () => <Image src="/img/icons/publications.svg" alt="publications" />,
         },
         {
             url: "/people",
             text: "People",
-            ImageComponent: () => <Image src="./img/icons/people.svg" alt="people" />,
+            ImageComponent: () => <Image src="/img/icons/people.svg" alt="people" />,
         },
         {
             url: "/entities",
             text: "Entities",
-            ImageComponent: () => <Image src="./img/icons/entities2.svg" alt="entities" />,
+            ImageComponent: () => <Image src="/img/icons/entities2.svg" alt="entities" />,
         },
         {
             url: "/administration",
             text: "Administration",
-            ImageComponent: () => <Image src="./img/icons/administration.svg" alt="administration" />,
+            ImageComponent: () => <Image src="/img/icons/administration.svg" alt="administration" />,
         },
     ];
 }
