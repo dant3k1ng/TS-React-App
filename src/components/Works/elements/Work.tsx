@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { IPost } from "../../../api/Post";
 import Color from "../../../shared/styleHelpers/Colors";
 import { Dot } from "../../../shared/components/Dot";
 import FontSize from "../../../shared/styleHelpers/FontSizes";
+import { IPost } from "../../../entities/Post";
 
 const ItemContainer = styled.div`
     box-shadow: 0px 2px 3px 0px #cccccc;

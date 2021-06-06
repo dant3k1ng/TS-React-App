@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { getPosts, IPost } from "../../api/Post";
+import { getPosts } from "../../api/Post";
 import Work from "./elements/Work";
 import ReactPaginate from 'react-paginate';
 import Color from "../../shared/styleHelpers/Colors";
 import { filter } from "../../helpers/Filter";
+import { IPost } from "../../entities/Post";
 
 const Container = styled.div`
     .pagination {
