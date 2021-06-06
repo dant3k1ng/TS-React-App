@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Color from "../../shared/styleHelpers/Colors";
 import ContentFooter from "./Latest/Publication/ContentFooter";
@@ -71,6 +72,10 @@ const SeeMoreTextWrapper = styled.div`
     height: 25px;
     display: flex;
     align-items: center;
+    
+    a {
+        text-decoration: none;
+    }
 `;
 
 const SeeMore = styled.span`
@@ -117,7 +122,9 @@ function LatestPublications() {
                     <PublicationItem />
                 </Items>
                 <SeeMoreTextWrapper>
-                    <SeeMore>See more publications</SeeMore>
+                    <Link to="/publications">
+                        <SeeMore>See more publications</SeeMore>
+                    </Link>
                 </SeeMoreTextWrapper>
             </ContentContainer>
         </LatestPublicationsWrapper>
