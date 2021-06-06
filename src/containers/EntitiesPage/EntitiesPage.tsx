@@ -99,7 +99,7 @@ class EntitiesPage extends React.Component<IProps, IState>
               </BottomLeft>
               <BottomRight>
                 <SearchWrapper>
-                  <SearchInput onChange={this.searchInputChangeHandler} type="text" placeholder="Search..." />
+                  <SearchInput onChange={this.searchInputChangeHandler} value={this.state.searchText} type="text" placeholder="Search..." />
                   <SearchIcon src="img/icons/search.png" />
                 </SearchWrapper>
                 <SeparateLine />
