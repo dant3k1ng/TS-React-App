@@ -1,20 +1,16 @@
-import { faBars, faCog, faEllipsisH, faExpandAlt, faFilter, faShare, faThLarge } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCog, faEllipsisH, faFilter, faShare, faThLarge } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useDispatch } from "react-redux";
 import { getEntities } from "../../api/Entity";
 import EntityMosaic from "../../components/Entity/types/EntityMosaic";
 import EntityRow from "../../components/Entity/types/EntityRow";
 import { IEntity } from "../../entities/Entity";
 import { filter } from "../../helpers/Filter";
-import { Layout } from "../../helpers/Layout";
 import { Sort } from "../../helpers/Sortable";
-import { setLayout } from "../../redux/actions/LayoutAction";
 import SeparateLine from "../../shared/components/SeparateLine";
 import { SortButton } from "../../shared/components/Sort";
 import { DefaultActionButton } from "../../shared/styleHelpers/components/EditButton";
 import DynamicLayout from "../Layout/DynamicLayout";
-import MainLayout from "../Layout/MainLayout";
 import { EntityViewType } from "./entities/EntityViewType";
 import FullScreenButton from "./Buttons/FullScreenButton";
 import { 

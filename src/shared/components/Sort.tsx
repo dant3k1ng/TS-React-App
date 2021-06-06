@@ -1,4 +1,4 @@
-import { faSort, faSortAlphaDown, faSortAlphaDownAlt, faSortAlphaUp } from "@fortawesome/free-solid-svg-icons";
+import { faSort, faSortAlphaDown, faSortAlphaDownAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { Sort } from "../../helpers/Sortable";
