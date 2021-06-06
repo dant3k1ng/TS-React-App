@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const DefaultActionButton = styled.button`
     border: none;
     background: transparent;
-    font-size: 1rem;
+    font-size: inherit;
     height: max-content;
     padding: 2px;
+    color: inherit;
 
     &:hover {
         cursor: pointer;

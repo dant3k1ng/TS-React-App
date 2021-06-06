@@ -13,13 +13,15 @@ import { DefaultActionButton } from "../../shared/styleHelpers/components/Action
 import DynamicLayout from "../Layout/DynamicLayout";
 import { EntityViewType } from "./entities/EntityViewType";
 import FullScreenButton from "./Buttons/FullScreenButton";
-import { 
+import {
   EntitiesHeader, EntitiesHeaderBottom, EntitiesHeaderTop, EntitiesHeaderTitle, ViewTypeButton, MosaicLayout, RowLayout,
   SearchWrapper, SearchInput, SearchIcon, BottomLeft, BottomRight, ShareText,
 } from "./styles/EntitiesPageStyles";
+import FiltersButton from "./Buttons/FiltersButton";
+import ShareButton from "./Buttons/ShareButton";
+import MoreButton from "./Buttons/MoreButton";
 
-interface IProps {}
-
+interface IProps { }
 interface IState {
   view: EntityViewType;
   entities: IEntity[] | [];
@@ -29,8 +31,7 @@ interface IState {
 
 class EntitiesPage extends React.Component<IProps, IState>
 {
-  constructor(props: IProps) 
-  {
+  constructor(props: IProps) {
     super(props);
 
     this.state = {
@@ -44,23 +45,20 @@ class EntitiesPage extends React.Component<IProps, IState>
     this.sortButtonClick = this.sortButtonClick.bind(this);
   }
 
-  async componentDidMount()
-  {
+  async componentDidMount() {
     let entities = await getEntities();
-    this.setState({entities: entities});
+    this.setState({ entities: entities });
   }
 
-  searchInputChangeHandler(event: React.ChangeEvent<HTMLInputElement>)
-  {
-    this.setState({searchText: event.target.value});
+  searchInputChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
+    this.setState({ searchText: event.target.value });
   }
 
-  sortButtonClick(event: React.MouseEvent<HTMLButtonElement>)
-  {
-    if(this.state.sort === Sort.NONE) {
-      this.setState({sort: Sort.A_TO_Z});
+  sortButtonClick(event: React.MouseEvent<HTMLButtonElement>) {
+    if (this.state.sort === Sort.NONE) {
+      this.setState({ sort: Sort.A_TO_Z });
     } else {
-      this.setState({sort: (this.state.sort === Sort.A_TO_Z ? Sort.Z_TO_A : Sort.A_TO_Z)});
+      this.setState({ sort: (this.state.sort === Sort.A_TO_Z ? Sort.Z_TO_A : Sort.A_TO_Z) });
     }
   }
 
@@ -73,15 +71,15 @@ class EntitiesPage extends React.Component<IProps, IState>
             <EntitiesHeaderTop>
               <div>
                 <EntitiesHeaderTitle>Entities</EntitiesHeaderTitle>
-                <DefaultActionButton><FontAwesomeIcon icon={faCog}/></DefaultActionButton>
+                <DefaultActionButton><FontAwesomeIcon icon={faCog} /></DefaultActionButton>
               </div>
               <div>
                 <ViewTypeButton className={this.currentViewTypeButtonClassHelper(EntityViewType.Mosaic)} onClick={() => this.changeLayout(EntityViewType.Mosaic)}>
-                  <FontAwesomeIcon icon={faThLarge}/>
+                  <FontAwesomeIcon icon={faThLarge} />
                   {this.state.view === EntityViewType.Mosaic ? <span>Mosaic</span> : null}
                 </ViewTypeButton>
                 <ViewTypeButton className={this.currentViewTypeButtonClassHelper(EntityViewType.Row)} onClick={() => this.changeLayout(EntityViewType.Row)}>
-                  <FontAwesomeIcon icon={faBars}/>
+                  <FontAwesomeIcon icon={faBars} />
                   {this.state.view === EntityViewType.Row ? <span>Row</span> : null}
                 </ViewTypeButton>
               </div>
@@ -89,25 +87,21 @@ class EntitiesPage extends React.Component<IProps, IState>
             <EntitiesHeaderBottom>
               <BottomLeft>
                 All
-                <FontAwesomeIcon icon={faEllipsisH}/>
-                <SeparateLine/>
-                <SortButton onClickHandler={this.sortButtonClick} currentSort={this.state.sort}/>
-                <DefaultActionButton>
-                  <FontAwesomeIcon icon={faFilter}/>
-                  Fitlers 
-                </DefaultActionButton>
-                <SeparateLine/>
-                <FullScreenButton/>
-                <SeparateLine/>
-                <FontAwesomeIcon icon={faShare}/>
-                <ShareText>Share</ShareText>
+                <MoreButton/>
+                <SeparateLine />
+                <SortButton onClickHandler={this.sortButtonClick} currentSort={this.state.sort} />
+                <FiltersButton />
+                <SeparateLine />
+                <FullScreenButton />
+                <SeparateLine />
+                <ShareButton />
               </BottomLeft>
               <BottomRight>
                 <SearchWrapper>
                   <SearchInput onChange={this.searchInputChangeHandler} type="text" placeholder="Search..." />
                   <SearchIcon src="img/icons/search.png" />
                 </SearchWrapper>
-                <SeparateLine/>
+                <SeparateLine />
                 Followed
               </BottomRight>
             </EntitiesHeaderBottom>
@@ -120,15 +114,13 @@ class EntitiesPage extends React.Component<IProps, IState>
     );
   }
 
-  currentViewTypeButtonClassHelper(layout: EntityViewType)
-  {
+  currentViewTypeButtonClassHelper(layout: EntityViewType) {
     const currentViewType = this.state.view;
     return currentViewType === layout ? "active" : "";
   }
 
-  getFilteredItems()
-  {
-    let items = this.state.entities;  
+  getFilteredItems() {
+    let items = this.state.entities;
     let searchText = this.state.searchText;
 
     items = filter(items, 'title', searchText);
@@ -138,23 +130,20 @@ class EntitiesPage extends React.Component<IProps, IState>
     return items;
   }
 
-  sortItems(items: IEntity[])
-  {
-    if(this.state.sort !== Sort.NONE)
-    {
+  sortItems(items: IEntity[]) {
+    if (this.state.sort !== Sort.NONE) {
       items.sort((a, b) => {
-        let titleA = a.title.toLowerCase(), 
-            titleB = b.title.toLowerCase();
+        let titleA = a.title.toLowerCase(),
+          titleB = b.title.toLowerCase();
 
-        if(titleA < titleB) { return this.state.sort === Sort.A_TO_Z ? -1 : 1; }
-        if(titleA > titleB) { return this.state.sort === Sort.A_TO_Z ? 1 : -1; }
+        if (titleA < titleB) { return this.state.sort === Sort.A_TO_Z ? -1 : 1; }
+        if (titleA > titleB) { return this.state.sort === Sort.A_TO_Z ? 1 : -1; }
         return 0;
       })
     }
   }
 
-  contentByLayout()
-  {
+  contentByLayout() {
     const entities = this.getFilteredItems();
 
     let itemsToShow: JSX.Element[] = [];
@@ -162,7 +151,7 @@ class EntitiesPage extends React.Component<IProps, IState>
     switch (this.state.view) {
       case EntityViewType.Row:
         entities.forEach((element, index) => {
-          itemsToShow.push(<EntityRow key={index} entity={element}/>);
+          itemsToShow.push(<EntityRow key={index} entity={element} />);
         });
 
         return (
@@ -172,7 +161,7 @@ class EntitiesPage extends React.Component<IProps, IState>
         );
       default:
         entities.forEach((element, index) => {
-          itemsToShow.push(<EntityMosaic key={index} entity={element}/>);
+          itemsToShow.push(<EntityMosaic key={index} entity={element} />);
         });
 
         return (
@@ -183,9 +172,8 @@ class EntitiesPage extends React.Component<IProps, IState>
     }
   }
 
-  changeLayout(layout: EntityViewType)
-  {
-    this.setState({view: layout});
+  changeLayout(layout: EntityViewType) {
+    this.setState({ view: layout });
   }
 }
 
