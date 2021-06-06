@@ -8,6 +8,8 @@ import { IComment } from "../../entities/Comment";
 import { getComments } from "../../api/Comments";
 import { getUsers } from "../../api/User";
 import { IUser } from "../../entities/User";
+import { IPhoto } from "../../entities/Photo";
+import { getPhotos } from "../../api/Photo";
 
 const Container = styled.div`
     .pagination {
@@ -54,6 +56,7 @@ interface IProps {
 
 interface IState {
     comments: IComment[] | [];
+    photos: IPhoto[] | [];
     users: IUser[] | [];
     perPage: number;
     offset: number;
@@ -66,6 +69,7 @@ export default class Works extends React.Component<IProps, IState>
 
         this.state = {
             comments: [],
+            photos: [],
             users: [],
             perPage: 10,
             offset: 0,
@@ -73,13 +77,15 @@ export default class Works extends React.Component<IProps, IState>
     }
 
     async componentDidMount() {
-        const [comments, users] = await Promise.all([
+        const [comments, photos, users] = await Promise.all([
             await getComments().then(response => response.json()).then(data => data),
+            await getPhotos().then(response => response.json()).then(data => data),
             await getUsers().then(response => response.json()).then(data => data),
         ]);
 
         this.setState({ 
             comments: comments,
+            photos: photos,
             users: users,
         });
     }
@@ -101,7 +107,7 @@ export default class Works extends React.Component<IProps, IState>
 
         const itemsToTake = filteredItems.slice(offset, itemsPerPage + offset);
         itemsToTake.forEach((comment: IComment) => {
-            items.push(<Work key={comment.id} comment={comment} user={this.getUser(comment.postId)}/>);
+            items.push(<Work key={comment.id} comment={comment} photo={this.getUserPhoto(comment.postId)} user={this.getUser(comment.postId)}/>);
         });
 
         return (
@@ -132,6 +138,19 @@ export default class Works extends React.Component<IProps, IState>
         for(let i = 0; i < users.length; i++) {
             if(users[i].id === userId) {
                 return users[i];
+            }
+        }
+
+        return null;
+    }
+
+    getUserPhoto(userId: number)
+    {
+        const photos = this.state.photos;
+
+        for(let i = 0; i < photos.length; i++) {
+            if(photos[i].id === userId) {
+                return photos[i];
             }
         }
 

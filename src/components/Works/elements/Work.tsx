@@ -4,6 +4,7 @@ import { Dot } from "../../../shared/components/Dot";
 import FontSize from "../../../shared/styleHelpers/FontSizes";
 import { IComment } from "../../../entities/Comment";
 import { IUser } from "../../../entities/User";
+import { IPhoto } from "../../../entities/Photo";
 
 const ItemContainer = styled.div`
     box-shadow: 0px 2px 3px 0px #cccccc;
@@ -24,7 +25,17 @@ const Content = styled.p`
     color: ${Color.darkGray};
 `;
 
-const Footer = styled.div``;
+const Footer = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+const UserImage = styled.img`
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    margin-right: 4px;
+`;
 
 const UserName = styled.span`
     font-size: ${FontSize[85]};
@@ -43,6 +54,7 @@ const UserInfo = styled.span`
 
 interface IProps {
     comment: IComment;
+    photo: IPhoto | null,
     user: IUser | null;
 }
 
@@ -52,6 +64,7 @@ export default function Work(props: IProps) {
             <Title>{props.comment.name}</Title>
             <Content>{props.comment.body}</Content>
             <Footer>
+                <UserImage src={props.photo?.thumbnailUrl}/>
                 <UserName>{props.user?.name}</UserName>
                 <Dot />
                 <JobType>Corporate</JobType>
