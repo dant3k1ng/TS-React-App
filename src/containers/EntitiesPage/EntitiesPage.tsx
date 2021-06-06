@@ -1,10 +1,8 @@
 import { faBars, faCog, faThLarge } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { getEntities } from "../../api/Entity";
 import EntityMosaic from "../../components/Entity/types/EntityMosaic";
 import EntityRow from "../../components/Entity/types/EntityRow";
-import { IEntity } from "../../entities/Entity";
 import { filter } from "../../helpers/Filter";
 import { Sort } from "../../helpers/Sortable";
 import SeparateLine from "../../shared/components/SeparateLine";
@@ -21,11 +19,13 @@ import FiltersButton from "./Buttons/FiltersButton";
 import ShareButton from "./Buttons/ShareButton";
 import MoreButton from "./Buttons/MoreButton";
 import AllButton from "./Buttons/AllButton";
+import { getPhotos } from "../../api/Photo";
+import { IPhoto } from "../../entities/Photo";
 
 interface IProps { }
 interface IState {
   view: EntityViewType;
-  entities: IEntity[] | [];
+  entities: IPhoto[] | [];
   sort: Sort;
   searchText: string;
 }
@@ -46,9 +46,13 @@ class EntitiesPage extends React.Component<IProps, IState>
     this.sortButtonClick = this.sortButtonClick.bind(this);
   }
 
-  async componentDidMount() {
-    let entities = await getEntities();
-    this.setState({ entities: entities });
+  componentDidMount() {
+    getPhotos()
+      .then(response => response.json())
+      .then(data => {
+        data = data.slice(0, 60);
+        this.setState({ entities: data });
+      })
   }
 
   searchInputChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
@@ -131,7 +135,7 @@ class EntitiesPage extends React.Component<IProps, IState>
     return items;
   }
 
-  sortItems(items: IEntity[]) {
+  sortItems(items: IPhoto[]) {
     if (this.state.sort !== Sort.NONE) {
       items.sort((a, b) => {
         let titleA = a.title.toLowerCase(),

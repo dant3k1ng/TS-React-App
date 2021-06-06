@@ -1,6 +1,6 @@
 import styled from "styled-components";
+import { IPhoto } from "../../../entities/Photo";
 import Color from "../../../shared/styleHelpers/Colors";
-import { IEntity } from "../interfaces/IEntity";
 
 const EntityWrapper = styled.div`
     display: flex;
@@ -44,7 +44,7 @@ const Description = styled.span`
 `;
 
 interface IProps {
-    entity: IEntity;
+    entity: IPhoto;
 }
 
 function EntityRow(props: IProps) 
@@ -52,11 +52,11 @@ function EntityRow(props: IProps)
     return (
         <EntityWrapper>
             <ImageWrapper>
-                <Image src={props.entity.imageUrl} alt="image"/>
+                <Image src={props.entity.thumbnailUrl} alt="image"/>
             </ImageWrapper>
             <ContentWrapper>
                 <Title>{props.entity.title}</Title>
-                <Description>{props.entity.description}</Description>
+                <Description>Caracas 1050, Distrito Capital, Venezuela</Description>
             </ContentWrapper>
         </EntityWrapper>
     );
