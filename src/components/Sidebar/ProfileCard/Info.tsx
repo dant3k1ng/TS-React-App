@@ -34,11 +34,12 @@ const CompanyName = styled.span`
 
 export default function Info() {
     const user = useSelector((state: IGlobalState) => state.user);
+    const userPhoto = useSelector((state: IGlobalState) => state.userPhoto);
 
     return (
         <div>
             <ImageContainer>
-                <UserImage src="img/avatar.jpg" alt="user" />
+                <UserImage src={userPhoto?.thumbnailUrl} alt="user" />
             </ImageContainer>
             <InfoFooter>
                 <UserName>{user?.name}</UserName>
