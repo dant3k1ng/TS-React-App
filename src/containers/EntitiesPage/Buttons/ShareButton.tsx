@@ -4,8 +4,14 @@ import { DefaultActionButton } from "../../../shared/styleHelpers/components/Act
 import { ShareText } from "../styles/EntitiesPageStyles";
 
 const ShareButton = () => {
+
+    const onClick = () => {
+        const currentHref = window.location.href;
+        navigator.clipboard.writeText(currentHref)
+    }
+
     return (
-        <DefaultActionButton>
+        <DefaultActionButton onClick={onClick}>
             <FontAwesomeIcon icon={faShare}/>
             <ShareText>Share</ShareText>
         </DefaultActionButton>
