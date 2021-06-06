@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Color from "../../../shared/styleHelpers/Colors";
 import { Dot } from "../../../shared/components/Dot";
 import FontSize from "../../../shared/styleHelpers/FontSizes";
-import { IPost } from "../../../entities/Post";
+import { IComment } from "../../../entities/Comment";
+import { IUser } from "../../../entities/User";
 
 const ItemContainer = styled.div`
     box-shadow: 0px 2px 3px 0px #cccccc;
@@ -25,7 +26,7 @@ const Content = styled.p`
 
 const Footer = styled.div``;
 
-const CompanyName = styled.span`
+const UserName = styled.span`
     font-size: ${FontSize[85]};
     color: ${Color.darkGray};
 `;
@@ -41,20 +42,21 @@ const UserInfo = styled.span`
 `;
 
 interface IProps {
-    post: IPost;
+    comment: IComment;
+    user: IUser | null;
 }
 
 export default function Work(props: IProps) {
     return (
         <ItemContainer>
-            <Title>{props.post.title}</Title>
-            <Content>{props.post.body}</Content>
+            <Title>{props.comment.name}</Title>
+            <Content>{props.comment.body}</Content>
             <Footer>
-                <CompanyName>Subsid. corp.</CompanyName>
+                <UserName>{props.user?.name}</UserName>
                 <Dot />
                 <JobType>Corporate</JobType>
                 <Dot />
-                <UserInfo>Updated 3 days ago by John Doe</UserInfo>
+                <UserInfo>Updated 3 days ago by {props.user?.name}</UserInfo>
             </Footer>
         </ItemContainer>
     );
