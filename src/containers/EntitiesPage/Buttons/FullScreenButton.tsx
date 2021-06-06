@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Layout } from "../../../helpers/Layout";
 import { setLayout } from "../../../redux/actions/LayoutAction";
 import { IGlobalState } from "../../../redux/reducers";
-import { DefaultActionButton } from "../../../shared/styleHelpers/components/EditButton"
+import { DefaultActionButton } from "../../../shared/styleHelpers/components/ActionButton"
 
 const FullScreenButton = () => {
 

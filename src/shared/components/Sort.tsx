@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { Sort } from "../../helpers/Sortable";
 import Color from "../styleHelpers/Colors";
-import { DefaultActionButton } from "../styleHelpers/components/EditButton";
+import { DefaultActionButton } from "../styleHelpers/components/ActionButton";
 
 const Text = styled.span`
     padding: 0 3px;

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import React from "react";
-import { EditButton } from "../../../shared/styleHelpers/components/EditButton";
+import { EditButton } from "../../../shared/styleHelpers/components/ActionButton";
 import { IUser } from "../../../entities/User";
 import {
     ActionBox, CityName, CompanyName, DataContent, DataContentColumn, DataContentRow, HeaderContainer,

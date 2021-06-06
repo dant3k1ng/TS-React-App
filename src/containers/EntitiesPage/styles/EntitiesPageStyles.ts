@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Color from "../../../shared/styleHelpers/Colors";
-import { DefaultActionButton } from "../../../shared/styleHelpers/components/EditButton";
+import { DefaultActionButton } from "../../../shared/styleHelpers/components/ActionButton";
 
 export const EntitiesHeader = styled.div`
     display: flex;

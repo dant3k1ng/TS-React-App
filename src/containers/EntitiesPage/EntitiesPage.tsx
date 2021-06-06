@@ -9,7 +9,7 @@ import { filter } from "../../helpers/Filter";
 import { Sort } from "../../helpers/Sortable";
 import SeparateLine from "../../shared/components/SeparateLine";
 import { SortButton } from "../../shared/components/Sort";
-import { DefaultActionButton } from "../../shared/styleHelpers/components/EditButton";
+import { DefaultActionButton } from "../../shared/styleHelpers/components/ActionButton";
 import DynamicLayout from "../Layout/DynamicLayout";
 import { EntityViewType } from "./entities/EntityViewType";
 import FullScreenButton from "./Buttons/FullScreenButton";
@@ -92,8 +92,10 @@ class EntitiesPage extends React.Component<IProps, IState>
                 <FontAwesomeIcon icon={faEllipsisH}/>
                 <SeparateLine/>
                 <SortButton onClickHandler={this.sortButtonClick} currentSort={this.state.sort}/>
-                <FontAwesomeIcon icon={faFilter}/>
-                Fitlers 
+                <DefaultActionButton>
+                  <FontAwesomeIcon icon={faFilter}/>
+                  Fitlers 
+                </DefaultActionButton>
                 <SeparateLine/>
                 <FullScreenButton/>
                 <SeparateLine/>
