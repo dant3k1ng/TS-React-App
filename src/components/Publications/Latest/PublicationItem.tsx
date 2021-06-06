@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { IPhoto } from "../../../entities/Photo";
+import { IPost } from "../../../entities/Post";
+import { IUser } from "../../../entities/User";
 import Color from "../../../shared/styleHelpers/Colors";
 import ContentFooter from "./Publication/ContentFooter";
 
@@ -33,13 +36,19 @@ const Title = styled.span`
     line-height: 1.2rem;
 `;
 
-function PublicationItem() {
+interface IProps {
+    post: IPost;
+    photo: IPhoto | null;
+    user: IUser | null;
+}
+
+function PublicationItem(props: IProps) {
     return (
         <PublicationContainer>
-            <Image src="img/man-5710164_640.jpg" alt="item" />
+            <Image src={props.photo?.url} alt="item" />
             <Content>
-                <Title>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam enim odio, ullamcorper vitae semper eget, aliquam eget est.</Title>
-                <ContentFooter />
+                <Title>{props.post.title}</Title>
+                <ContentFooter post={props.post} photo={props.photo} user={props.user}/>
             </Content>
         </PublicationContainer>
     );

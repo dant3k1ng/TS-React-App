@@ -1,5 +1,12 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { getPhotos } from "../../api/Photo";
+import { getPosts } from "../../api/Post";
+import { getUsers } from "../../api/User";
+import { IPhoto } from "../../entities/Photo";
+import { IPost } from "../../entities/Post";
+import { IUser } from "../../entities/User";
 import Color from "../../shared/styleHelpers/Colors";
 import ContentFooter from "./Latest/Publication/ContentFooter";
 import PublicationItem from "./Latest/PublicationItem";
@@ -98,17 +105,73 @@ const ContentFooterWrapper = styled.div`
     }
 `;
 
+function getUser(users: IUser[], userId: number) 
+{
+    for(let i = 0; i < users.length; i++) {
+        if(users[i].id === userId) {
+            return users[i];
+        }
+    }
+
+    return null;
+}
+
+function getPhoto(photos: IPhoto[], userId: number) 
+{
+    for(let i = 0; i < photos.length; i++) {
+        if(photos[i].id === userId) {
+            return photos[i];
+        }
+    }
+
+    return null;
+}
+
 function LatestPublications() {
+
+    const [posts, setPosts] = useState<IPost[]>([]);
+    const [photos, setPhotos] = useState<IPhoto[]>([]);
+    const [users, setUsers] = useState<IUser[]>([]);
+
+    useEffect(() => {
+        async function getData()
+        {
+            let [posts, photos, users] = await Promise.all([
+                getPosts().then(response => response.json()).then(data => data),
+                getPhotos().then(response => response.json()).then(data => data),
+                getUsers().then(response => response.json()).then(data => data),
+            ]);
+
+            setPosts(posts);
+            setPhotos(photos);
+            setUsers(users);
+        }
+
+        getData();
+    }, []);
+
+    if (posts.length === 0) {
+        return null;
+    }
+
+    const firstItem = posts[0];
+    const items = posts.slice(1, 4);
+    const itemsToShow: JSX.Element[] = [];
+
+    items.forEach(element => {
+        itemsToShow.push(<PublicationItem post={element} photo={getPhoto(photos, element.userId)} user={getUser(users, element.userId)}/>)
+    })
+
     return (
         <LatestPublicationsWrapper>
             <ImageContainer>
-                <BigImage src="img/publications.png" alt="publications main" />
+                <BigImage src={getPhoto(photos, firstItem.userId)?.url} alt="publications main" />
                 <ImageAbsoluteContainer>
                     <ImageTitle>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam enim odio, ullamcorper vitae semper eget, aliquam eget est.
+                        {firstItem?.title}
                     </ImageTitle>
                     <ContentFooterWrapper>
-                        <ContentFooter />
+                        <ContentFooter post={firstItem} photo={getPhoto(photos, firstItem.userId)} user={getUser(users, firstItem.userId)}/>
                     </ContentFooterWrapper>
                 </ImageAbsoluteContainer>
             </ImageContainer>
@@ -117,9 +180,7 @@ function LatestPublications() {
                     <Title />
                 </TitleWrapper>
                 <Items>
-                    <PublicationItem />
-                    <PublicationItem />
-                    <PublicationItem />
+                    {itemsToShow}
                 </Items>
                 <SeeMoreTextWrapper>
                     <Link to="/publications">

@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { IPhoto } from "../../../../entities/Photo";
+import { IPost } from "../../../../entities/Post";
+import { IUser } from "../../../../entities/User";
 import Color from "../../../../shared/styleHelpers/Colors";
 import FontSize from "../../../../shared/styleHelpers/FontSizes";
 
@@ -27,15 +30,20 @@ const AuthorName = styled.span`
     color: ${Color.darkBlue};
 `;
 
-function ContentFooter() {
+interface IProps {
+    post: IPost;
+    photo: IPhoto | null;
+    user: IUser | null;
+}
+
+function ContentFooter(props: IProps) {
     const date = "7 Jan. 2020";
-    const authorName = "John Doe";
 
     return (
         <ContentFooterContainer>
             <Date className="date">{date}</Date>
-            <AuthorImage src="img/avatar.jpg" alt="author" />
-            <AuthorName className="author-name">{authorName}</AuthorName>
+            <AuthorImage src={props.photo?.thumbnailUrl} alt="author" />
+            <AuthorName className="author-name">{props.user?.name}</AuthorName>
         </ContentFooterContainer>
     );
 }
