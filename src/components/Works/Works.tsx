@@ -78,9 +78,9 @@ export default class Works extends React.Component<IProps, IState>
 
     async componentDidMount() {
         const [comments, photos, users] = await Promise.all([
-            await getComments().then(response => response.json()).then(data => data),
-            await getPhotos().then(response => response.json()).then(data => data),
-            await getUsers().then(response => response.json()).then(data => data),
+            getComments().then(response => response.json()).then(data => data),
+            getPhotos().then(response => response.json()).then(data => data),
+            getUsers().then(response => response.json()).then(data => data),
         ]);
 
         this.setState({ 
