@@ -159,7 +159,7 @@ function LatestPublications() {
     const itemsToShow: JSX.Element[] = [];
 
     items.forEach(element => {
-        itemsToShow.push(<PublicationItem post={element} photo={getPhoto(photos, element.userId)} user={getUser(users, element.userId)}/>)
+        itemsToShow.push(<PublicationItem key={element.id} post={element} photo={getPhoto(photos, element.userId)} user={getUser(users, element.userId)}/>)
     })
 
     return (
