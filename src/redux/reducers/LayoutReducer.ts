@@ -5,11 +5,11 @@ interface ILayoutReducerAction {
   layout: Layout;
 }
 
-const set = (state = Layout.DEFAULT, action: ILayoutReducerAction) => {
+const setLayout = (state = Layout.DEFAULT, action: ILayoutReducerAction) => {
   switch (action.type) {
     case 'setLayout': return action.layout;
     default: return state;
   }
 }
 
-export default set;
+export default setLayout;

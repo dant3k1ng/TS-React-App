@@ -13,9 +13,9 @@ export interface IGlobalState {
 }
 
 const reducers = {
-    'user': UserReducer,
-    'workspaces' : WorkspaceReducer,
-    'layout' : LayoutReducer,
+    user: UserReducer,
+    workspaces : WorkspaceReducer,
+    layout : LayoutReducer,
 }
 
 export default combineReducers(reducers);

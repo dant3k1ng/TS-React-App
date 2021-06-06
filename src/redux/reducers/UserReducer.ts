@@ -5,11 +5,11 @@ interface IUserReducerAction {
   user: IUser|null;
 }
 
-const set = (state = null, action: IUserReducerAction) => {
+const setUser = (state = null, action: IUserReducerAction) => {
   switch (action.type) {
-    case 'set': return action.user;
+    case 'setUser': return action.user;
     default: return state;
   }
 }
 
-export default set;
+export default setUser;
