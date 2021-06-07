@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { IGlobalState } from "../../../redux/reducers";
 import Color from "../../../shared/styleHelpers/Colors";
 import { Item, Image, Text, DropdownLink } from "../../../shared/styleHelpers/components/Dropdown/styles";
 import FontSize from "../../../shared/styleHelpers/FontSizes";
@@ -52,12 +53,13 @@ interface IProps {
 }
 
 function Account(props: IProps) {
-    const userName = useSelector((state: any) => state?.user?.name);
+    const userName = useSelector((state: IGlobalState) => state?.user?.name);
+    const userPhoto = useSelector((state: IGlobalState) => state?.userPhoto);
 
     return (
         <ItemsContainer>
             <UserItem>
-                <UserImage src="img/avatar.jpg" alt="user" />
+                <UserImage src={userPhoto?.thumbnailUrl} alt="user" />
                 <UserData>
                     <Username>{userName}</Username>
                     <DropdownLink to="/profile">
