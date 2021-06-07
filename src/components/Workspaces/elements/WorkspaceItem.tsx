@@ -93,7 +93,7 @@ function WorkspaceItem(props: IProps) {
                 <InfoContainer>
                     <InfoBox>{props.workspace.type}</InfoBox>
                     <Dot />
-                    <InfoBox>{props.workspace.userCount}</InfoBox>
+                    <InfoBox>{props.workspace.userCount} users</InfoBox>
                 </InfoContainer>
                 <FooterDate>Last update {props.workspace.lastUpdate}</FooterDate>
             </Content>
