@@ -36,6 +36,7 @@ const DescriptionImage = styled.img`
 const BottomContent = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 const BottomContentTop = styled.div`
