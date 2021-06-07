@@ -25,7 +25,7 @@ const HeaderText = styled.span`
 const Content = styled.div`
   display: grid;
   grid-gap: 12px;
-  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) ;
 `;
 
 const ItemBox = styled.div`
