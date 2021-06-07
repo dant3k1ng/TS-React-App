@@ -5,6 +5,11 @@ import '@brainhubeu/react-carousel/lib/style.css';
 import { useSelector } from "react-redux";
 import { IGlobalState } from "../../redux/reducers";
 import { IWorkspace } from "../../entities/Workspace";
+import { Link } from "react-router-dom";
+
+const WorkspaceLink = styled(Link)`
+    text-decoration: none;
+`;
 
 const ItemsContainer = styled.div`
     display: flex;
@@ -40,7 +45,9 @@ function Workspaces() {
             }]}>
                 {
                     items.map((item: IWorkspace, index) => (
-                        <WorkspaceItem key={index} workspace={item} />
+                        <WorkspaceLink key={index} to={`/workspace/${item.id}`}>
+                            <WorkspaceItem workspace={item} />
+                        </WorkspaceLink>
                     ))
                 }
             </CustomCarousel>

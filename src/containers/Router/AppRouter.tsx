@@ -9,6 +9,7 @@ import PublicationsPage from '../PublicationsPage/PublicationsPage';
 import PrivacyPage from '../User/PrivacyPage';
 import ProfilePage from '../User/ProfilePage';
 import SettingsPage from '../User/SettingsPage';
+import WorkspacePage from '../WorkspacePage/WorkspacePage';
 
 const AppRouter = () => (
     <main>
@@ -22,6 +23,7 @@ const AppRouter = () => (
             <Route exact path="/profile" component={ProfilePage} />
             <Route exact path="/publications" component={PublicationsPage} />
             <Route exact path="/settings" component={SettingsPage} />
+            <Route exact path="/workspace/:id" component={WorkspacePage} />
             <Route component={NotFoundPage} />
         </Switch>
     </main>
