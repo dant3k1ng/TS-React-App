@@ -85,7 +85,7 @@ class EntitiesPage extends React.Component<IProps, IState>
                 </ViewTypeButton>
                 <ViewTypeButton className={this.currentViewTypeButtonClassHelper(EntityViewType.Row)} onClick={() => this.changeLayout(EntityViewType.Row)}>
                   <FontAwesomeIcon icon={faBars} />
-                  {this.state.view === EntityViewType.Row ? <span>Row</span> : null}
+                  {this.state.view === EntityViewType.Row ? <span>List</span> : null}
                 </ViewTypeButton>
               </div>
             </EntitiesHeaderTop>
