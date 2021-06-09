@@ -1,8 +1,8 @@
 import styled from "styled-components";
+import SearchInput from "../../shared/components/SearchInput";
 import FastNav from "./elements/FastNav";
 import Home from "./elements/Home";
 import Logo from "./elements/Logo";
-import Search from "./elements/Search";
 
 const HeaderWrapper = styled.div`
     display: flex;
@@ -27,6 +27,7 @@ const SidebarHeaderContainer = styled.div`
 const SearchContainer = styled.div`
     display: flex;
     width: 100%;
+    padding-left: 50px;
     user-select: none;
 `;
 
@@ -46,7 +47,7 @@ function Header() {
                 <Home />
             </SidebarHeaderContainer>
             <SearchContainer>
-                <Search />
+                <SearchInput inputChangeHandler={undefined} placeholder="Search legalcluster"/>
             </SearchContainer>
             <FastNavContainer>
                 <FastNav />

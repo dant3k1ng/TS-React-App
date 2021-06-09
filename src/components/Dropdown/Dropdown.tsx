@@ -6,7 +6,16 @@ import Logout from "./Logout";
 import SpaceLine from "../../shared/components/SpaceLine";
 import { IsUserLoggedIn } from "../../helpers/User";
 import { useState } from "react";
-import Search from "./Search";
+import SearchInput from "../../shared/components/SearchInput";
+
+const SearchWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+`;
 
 const DropdownWrapper = styled.div`
     display: flex;
@@ -41,7 +50,9 @@ function Dropdown() {
 
     return (
         <DropdownWrapper>
-            <Search onChangeHandler={inputChangeHandler} />
+            <SearchWrapper>
+                <SearchInput inputChangeHandler={inputChangeHandler} placeholder="Filter..."/>
+            </SearchWrapper>
 
             <Title>Platform</Title>
             <Platform filterText={inputText} />
