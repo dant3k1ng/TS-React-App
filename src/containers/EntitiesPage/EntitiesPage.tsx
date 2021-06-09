@@ -13,7 +13,7 @@ import { EntityViewType } from "./entities/EntityViewType";
 import FullScreenButton from "./Buttons/FullScreenButton";
 import {
   EntitiesHeader, EntitiesHeaderBottom, EntitiesHeaderTop, EntitiesHeaderTitle, ViewTypeButton, MosaicLayout, RowLayout,
-  SearchWrapper, SearchInput, SearchIcon, BottomLeft, BottomRight, 
+  SearchWrapper, SearchInput, SearchIcon, BottomLeft, BottomRight, EntitiesHeaderTopLeft, EntitiesHeaderTopRight,
 } from "./styles/EntitiesPageStyles";
 import FiltersButton from "./Buttons/FiltersButton";
 import ShareButton from "./Buttons/ShareButton";
@@ -74,11 +74,11 @@ class EntitiesPage extends React.Component<IProps, IState>
         <>
           <EntitiesHeader>
             <EntitiesHeaderTop>
-              <div>
+              <EntitiesHeaderTopLeft>
                 <EntitiesHeaderTitle>Entities</EntitiesHeaderTitle>
                 <DefaultActionButton><FontAwesomeIcon icon={faCog} /></DefaultActionButton>
-              </div>
-              <div>
+              </EntitiesHeaderTopLeft>
+              <EntitiesHeaderTopRight>
                 <ViewTypeButton className={this.currentViewTypeButtonClassHelper(EntityViewType.Mosaic)} onClick={() => this.changeLayout(EntityViewType.Mosaic)}>
                   <FontAwesomeIcon icon={faThLarge} />
                   {this.state.view === EntityViewType.Mosaic ? <span>Mosaic</span> : null}
@@ -87,7 +87,7 @@ class EntitiesPage extends React.Component<IProps, IState>
                   <FontAwesomeIcon icon={faBars} />
                   {this.state.view === EntityViewType.Row ? <span>List</span> : null}
                 </ViewTypeButton>
-              </div>
+              </EntitiesHeaderTopRight>
             </EntitiesHeaderTop>
             <EntitiesHeaderBottom>
               <BottomLeft>

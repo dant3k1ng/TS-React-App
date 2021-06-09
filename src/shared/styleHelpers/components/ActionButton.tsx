@@ -7,6 +7,9 @@ export const DefaultActionButton = styled.button`
     height: max-content;
     padding: 2px;
     color: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
     &:hover {
         cursor: pointer;

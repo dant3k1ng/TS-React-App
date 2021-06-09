@@ -14,6 +14,16 @@ export const EntitiesHeaderTop = styled.div`
     justify-content: space-between;
 `;
 
+export const EntitiesHeaderTopLeft = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
+export const EntitiesHeaderTopRight = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
 export const EntitiesHeaderTitle = styled.span`
     padding: 0 2px;
     margin-right: 4px;
