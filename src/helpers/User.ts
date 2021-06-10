@@ -8,3 +8,7 @@ export const IsUserLoggedIn = () => {
 export const GetLoggedUser = () => {
     return useSelector((state: IGlobalState) => state.user);
 }
+
+export const GetLoggedUserId = () => {
+    return useSelector((state: IGlobalState) => state.user?.id || null);
+}
