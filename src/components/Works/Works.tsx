@@ -3,13 +3,14 @@ import styled from "styled-components";
 import Work from "./elements/Work";
 import ReactPaginate from 'react-paginate';
 import Color from "../../shared/styleHelpers/Colors";
-import { filter } from "../../helpers/Filter";
+import { filter, filterByLoggedUser } from "../../helpers/Filter";
 import { IComment } from "../../entities/Comment";
 import { getComments } from "../../api/Comments";
 import { getUsers } from "../../api/User";
 import { IUser } from "../../entities/User";
 import { IPhoto } from "../../entities/Photo";
 import { getPhotos } from "../../api/Photo";
+import { Items } from "../../shared/components/ItemsSelector";
 
 const Container = styled.div`
     .pagination {
@@ -52,6 +53,8 @@ const WorksPagination = styled(ReactPaginate)``;
 
 interface IProps {
     filterText: string;
+    filterType?: Items;
+    loggedUserId?: number | null;
 }
 
 interface IState {
@@ -83,17 +86,18 @@ export default class Works extends React.Component<IProps, IState>
             getUsers().then(response => response.json()).then(data => data),
         ]);
 
-        this.setState({ 
+        this.setState({
             comments: comments,
             photos: photos,
             users: users,
         });
     }
 
-    render() 
-    {
+    render() {
         const items: JSX.Element[] = [];
-        const filteredItems = filter(this.state.comments, 'name', this.props.filterText);
+        let filteredItems = filter(this.state.comments, 'name', this.props.filterText);
+        filteredItems = filterByLoggedUser(filteredItems, 'postId', this.props.filterType, this.props.loggedUserId);
+
         const itemsPerPage = this.state.perPage;
         const offset = this.state.offset;
         const total = filteredItems.length;
@@ -107,7 +111,7 @@ export default class Works extends React.Component<IProps, IState>
 
         const itemsToTake = filteredItems.slice(offset, itemsPerPage + offset);
         itemsToTake.forEach((comment: IComment) => {
-            items.push(<Work key={comment.id} comment={comment} photo={this.getUserPhoto(comment.postId)} user={this.getUser(comment.postId)}/>);
+            items.push(<Work key={comment.id} comment={comment} photo={this.getUserPhoto(comment.postId)} user={this.getUser(comment.postId)} />);
         });
 
         return (
@@ -131,12 +135,11 @@ export default class Works extends React.Component<IProps, IState>
         );
     }
 
-    getUser(userId: number)
-    {
+    getUser(userId: number) {
         const users = this.state.users;
 
-        for(let i = 0; i < users.length; i++) {
-            if(users[i].id === userId) {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].id === userId) {
                 return users[i];
             }
         }
@@ -144,12 +147,11 @@ export default class Works extends React.Component<IProps, IState>
         return null;
     }
 
-    getUserPhoto(userId: number)
-    {
+    getUserPhoto(userId: number) {
         const photos = this.state.photos;
 
-        for(let i = 0; i < photos.length; i++) {
-            if(photos[i].id === userId) {
+        for (let i = 0; i < photos.length; i++) {
+            if (photos[i].id === userId) {
                 return photos[i];
             }
         }

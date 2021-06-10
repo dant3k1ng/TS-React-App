@@ -1,8 +1,6 @@
 import { faBars, faCog, faThLarge } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import EntityMosaic from "../../components/Entity/types/EntityMosaic";
-import EntityRow from "../../components/Entity/types/EntityRow";
 import { filter } from "../../helpers/Filter";
 import { Sort } from "../../helpers/Sortable";
 import SeparateLine from "../../shared/components/SeparateLine";
@@ -12,7 +10,7 @@ import DynamicLayout from "../Layout/DynamicLayout";
 import { EntityViewType } from "./entities/EntityViewType";
 import FullScreenButton from "./Buttons/FullScreenButton";
 import {
-  EntitiesHeader, EntitiesHeaderBottom, EntitiesHeaderTop, EntitiesHeaderTitle, ViewTypeButton, MosaicLayout, RowLayout,
+  EntitiesHeader, EntitiesHeaderBottom, EntitiesHeaderTop, EntitiesHeaderTitle, ViewTypeButton,
   SearchWrapper, SearchInput, SearchIcon, BottomLeft, BottomRight, EntitiesHeaderTopLeft, EntitiesHeaderTopRight,
 } from "./styles/EntitiesPageStyles";
 import FiltersButton from "./Buttons/FiltersButton";
@@ -21,6 +19,8 @@ import MoreButton from "./Buttons/MoreButton";
 import AllButton from "./Buttons/AllButton";
 import { getPhotos } from "../../api/Photo";
 import { IPhoto } from "../../entities/Photo";
+import ItemsSelector, { Items } from "../../shared/components/ItemsSelector";
+import Content from "./Content";
 
 interface IProps { }
 interface IState {
@@ -28,6 +28,7 @@ interface IState {
   entities: IPhoto[] | [];
   sort: Sort;
   searchText: string;
+  fitlerType: Items;
 }
 
 class EntitiesPage extends React.Component<IProps, IState>
@@ -40,9 +41,11 @@ class EntitiesPage extends React.Component<IProps, IState>
       entities: [],
       sort: Sort.NONE,
       searchText: "",
+      fitlerType: Items.All,
     };
 
     this.searchInputChangeHandler = this.searchInputChangeHandler.bind(this);
+    this.selectChangeHandler = this.selectChangeHandler.bind(this);
     this.sortButtonClick = this.sortButtonClick.bind(this);
   }
 
@@ -50,13 +53,18 @@ class EntitiesPage extends React.Component<IProps, IState>
     getPhotos()
       .then(response => response.json())
       .then(data => {
-        data = data.slice(0, 60);
+        data = data.slice(0, 120);
         this.setState({ entities: data });
       })
   }
 
   searchInputChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({ searchText: event.target.value });
+  }
+
+  selectChangeHandler(event: React.ChangeEvent<HTMLSelectElement>) {
+    let val = Object.values(Items).includes(event.target.value as Items) ? event.target.value as Items : Items.All;
+    this.setState({ fitlerType: val });
   }
 
   sortButtonClick(event: React.MouseEvent<HTMLButtonElement>) {
@@ -67,8 +75,7 @@ class EntitiesPage extends React.Component<IProps, IState>
     }
   }
 
-  render() 
-  {
+  render() {
     return (
       <DynamicLayout>
         <>
@@ -91,8 +98,8 @@ class EntitiesPage extends React.Component<IProps, IState>
             </EntitiesHeaderTop>
             <EntitiesHeaderBottom>
               <BottomLeft>
-                <AllButton/>
-                <MoreButton/>
+                <AllButton />
+                <MoreButton />
                 <SeparateLine />
                 <SortButton onClickHandler={this.sortButtonClick} currentSort={this.state.sort} />
                 <FiltersButton />
@@ -107,13 +114,11 @@ class EntitiesPage extends React.Component<IProps, IState>
                   <SearchIcon src="img/icons/search.png" />
                 </SearchWrapper>
                 <SeparateLine />
-                Followed
+                <ItemsSelector onChange={this.selectChangeHandler} />
               </BottomRight>
             </EntitiesHeaderBottom>
           </EntitiesHeader>
-          <>
-            {this.contentByLayout()}
-          </>
+          <Content entities={this.getFilteredItems()} view={this.state.view} fitlerType={this.state.fitlerType}/>
         </>
       </DynamicLayout>
     );
@@ -145,35 +150,6 @@ class EntitiesPage extends React.Component<IProps, IState>
         if (titleA > titleB) { return this.state.sort === Sort.A_TO_Z ? 1 : -1; }
         return 0;
       })
-    }
-  }
-
-  contentByLayout() {
-    const entities = this.getFilteredItems();
-
-    let itemsToShow: JSX.Element[] = [];
-
-    switch (this.state.view) {
-      case EntityViewType.Row:
-        entities.forEach((element, index) => {
-          itemsToShow.push(<EntityRow key={index} entity={element} />);
-        });
-
-        return (
-          <RowLayout>
-            {itemsToShow}
-          </RowLayout>
-        );
-      default:
-        entities.forEach((element, index) => {
-          itemsToShow.push(<EntityMosaic key={index} entity={element} />);
-        });
-
-        return (
-          <MosaicLayout>
-            {itemsToShow}
-          </MosaicLayout>
-        );
     }
   }
 

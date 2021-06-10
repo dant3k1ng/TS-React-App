@@ -19,10 +19,9 @@ export const CommentsContainerHeaderTop = styled.div`
     justify-content: space-between;
 `;
 
-export const CommentsContainerHeaderTopLeft = styled.div`
-
-`;
+export const CommentsContainerHeaderTopLeft = styled.div``;
 
 export const CommentsContainerHeaderTopRight = styled.div`
-
+    display: flex;
+    flex-direction: row;
 `;
