@@ -29,6 +29,12 @@ const SearchContainer = styled.div`
     width: 100%;
     padding-left: 50px;
     user-select: none;
+    display: flex;
+    justify-content: center;
+`;
+
+const SearchWrapper = styled.div`
+    width: 70%;
 `;
 
 const FastNavContainer = styled.div`
@@ -47,7 +53,9 @@ function Header() {
                 <Home />
             </SidebarHeaderContainer>
             <SearchContainer>
-                <SearchInput inputChangeHandler={undefined} placeholder="Search legalcluster"/>
+                <SearchWrapper>
+                    <SearchInput inputChangeHandler={undefined} placeholder="Search legalcluster"/>
+                </SearchWrapper>
             </SearchContainer>
             <FastNavContainer>
                 <FastNav />
