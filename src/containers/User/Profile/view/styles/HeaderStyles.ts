@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Color from "../../../../shared/styleHelpers/Colors";
+import Color from "../../../../../shared/styleHelpers/Colors";
 
 export const HeaderContainer = styled.div`
     width: 100%;
@@ -75,23 +75,39 @@ export const SeeProfileButton = styled.button`
     font-weight: 900;
 `;
 
-export const UserDataText = styled.span`
-    font-size: 1.02em;
-    padding: 1px 0;
-`;
+//
 
+export const UserDataText = styled.span`
+    border: 1px solid transparent;
+    font-size: 1rem;
+    line-height: 0.9;
+    padding: 2px 2px;
+    margin: 1px;
+`;
 export const Username = styled(UserDataText)`
     font-weight: 900;
 `;
-
 export const CompanyName = styled(UserDataText)`
     font-weight: 900;
 `;
-
 export const CityName = styled(UserDataText)``;
-
 export const StreetName = styled(UserDataText)``;
-
 export const UserEmail = styled(UserDataText)``;
-
 export const UserPhone = styled(UserDataText)``;
+
+export const UserDataTextInput = styled.input`
+    border: 1px solid gray;
+    border-radius: 2px;
+    outline: none;
+    font-size: 1rem;
+    padding: 2px 2px;
+    margin: 1px;
+`;
+
+export const UserDataTextUsernameInput = styled(UserDataTextInput)`
+    font-weight: 900;
+`;
+
+export const UserDataTextCompanyNameInput = styled(UserDataTextInput)`
+    font-weight: 900;
+`;
