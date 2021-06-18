@@ -24,14 +24,15 @@ function HeaderEdit(props: IProps) {
     const user = GetLoggedUser();
     const dispatch = useDispatch();
     const [formAttr, setFormAttr] = useState<IUserFormAttr>({});
-    const [name, setName] = useState("");
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        let attr = formAttr;
-        attr[event.target.name] = event.target.value
+        const attr2 = formAttr;
+        attr2[event.target.name] = event.target.value
 
-        setFormAttr(attr);
-        setName(String(Date.now()))
+        setFormAttr({
+            ...formAttr,
+            [event.target.name]: event.target.value
+        });
     }
 
     const getByFormAttr = (attr: string) => {
