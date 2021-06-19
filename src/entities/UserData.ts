@@ -2,6 +2,10 @@ export interface ItemKeyValue {
     [key: string]: string;
 }
 
+export interface Attachment {
+    [key: string]: File | null;
+}
+
 export interface Information
 {
     hourlyFee?: string;
@@ -17,6 +21,6 @@ export interface UserData {
     counties: ItemKeyValue;
     //
     informations: Information;
-    //
+    terms: Attachment;
     services: ItemKeyValue;
 }

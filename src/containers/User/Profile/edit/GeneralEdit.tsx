@@ -2,12 +2,9 @@ import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { ItemKeyValue } from "../../../../entities/UserData";
+import { randomString } from "../../../../helpers/RandomString";
 import { EditButton } from "../../../../shared/styleHelpers/components/ActionButton";
 import { Label, TagInput, TagInputBox, TagsContainer } from "../styles/CommonStyles";
-
-const randomString = () => {
-    return String(Date.now());
-}
 
 interface IProps {
     title: string;

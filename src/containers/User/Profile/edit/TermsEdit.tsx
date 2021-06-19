@@ -2,33 +2,37 @@ import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import styled from "styled-components";
-import { ItemKeyValue } from "../../../../entities/UserData";
+import { Attachment } from "../../../../entities/UserData";
 import { randomString } from "../../../../helpers/RandomString";
 import { EditButton } from "../../../../shared/styleHelpers/components/ActionButton";
-import { CustomBox, Label, TagInput, TagInputBox, TagsContainer } from "../styles/CommonStyles";
+import { CustomBox, Label, TagInputBox, TagInput, FileNameText, InputImageWrapper, InputDataWrapper } from "../styles/CommonStyles";
 
 const TagInputBoxWrapper = styled(TagInputBox)`
     width: 100%;
 `;
 
 const TagInputWrapper = styled(TagInput)`
+    position: absolute;
     width: 100%;
+    z-index: 10;
+    opacity: 0;
 `;
 
 interface IProps {
-    items: ItemKeyValue,
-    onChange: (items: ItemKeyValue) => void
+    items: Attachment,
+    onChange: (items: Attachment) => void
 }
 
-function ServicesEdit(props: IProps) {
-
+function TermsEdit(props: IProps) {
     const [focusedId, setFocusedId] = useState("");
     const itemsToShow: JSX.Element[] = [];
 
     //
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        props.onChange({ ...props.items, [event.target.id]: event.target.value });
+        if (event.target.files !== null && event.target.files.length > 0) {
+            props.onChange({ ...props.items, [event.target.id]: event.target.files[0] });
+        }
     }
 
     const handleDelete = (id: string) => {
@@ -39,18 +43,25 @@ function ServicesEdit(props: IProps) {
 
     const handleAdd = () => {
         let newId = randomString();
-        props.onChange({ ...props.items, [newId]: "" });
+        props.onChange({ ...props.items, [newId]: null });
         setFocusedId(newId)
     }
 
     //
 
     for (let itemKey in props.items) {
-        let value = props.items[itemKey];
+        const file = props.items[itemKey];
+        const fileName = file !== null ? file.name : "";
+        const isImage = file !== null && file.type.split('/')[0] === 'image';
+        const fileUrl = isImage ? URL.createObjectURL(file) : "";
 
         itemsToShow.push(
             <TagInputBoxWrapper key={itemKey} onClick={() => setFocusedId(itemKey)}>
-                <TagInputWrapper id={itemKey} value={value} onChange={(e) => handleChange(e)} />
+                {isImage && fileUrl !== "" ? <InputImageWrapper src={fileUrl} /> : null}
+                <InputDataWrapper>
+                    <FileNameText>{fileName === "" ? "Select file" : fileName}</FileNameText>
+                    <TagInputWrapper id={itemKey} type="file" onChange={(e) => handleChange(e)} />
+                </InputDataWrapper>
                 {
                     focusedId === itemKey ? (
                         <EditButton onClick={() => handleDelete(itemKey)}>
@@ -74,12 +85,10 @@ function ServicesEdit(props: IProps) {
 
     return (
         <CustomBox>
-            <Label>Services & projects</Label>
-            <TagsContainer>
-                {itemsToShow}
-            </TagsContainer>
+            <Label>Terms & conditions</Label>
+            {itemsToShow}
         </CustomBox>
     );
 }
 
-export default ServicesEdit;
+export default TermsEdit;

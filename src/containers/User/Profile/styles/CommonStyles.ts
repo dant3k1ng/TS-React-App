@@ -54,3 +54,27 @@ export const TagInput = styled.input`
     font-weight: 900;
     margin-right: 2px;
 `;
+
+export const FileNameText = styled.span`
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    color: ${Color.blue};
+    background-color: rgb(230, 240, 243);
+    z-index: 1;
+    font-weight: 900;
+`;
+
+export const InputImageWrapper = styled.img`
+    max-width: 32px;
+    max-height: 32px;
+`;
+
+export const InputDataWrapper = styled.div`
+    position: relative;
+    width: 100%;
+    height: 32px;
+`;

@@ -4,6 +4,7 @@ import HeaderEdit from "./edit/HeaderEdit";
 import Informations from "./view/Informations";
 import InternalReviews from "./view/InternalReviews";
 import Proposals from "./view/Proposals";
+import Terms from "./view/Terms";
 import Services from "./view/Services";
 import General from "./view/General";
 import { EditButton, SaveButton } from "../../../shared/styleHelpers/components/ActionButton";
@@ -16,9 +17,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IGlobalState } from "../../../redux/reducers";
 import { setUserData } from "../../../redux/actions/UserDataAction";
-import { Information, ItemKeyValue } from "../../../entities/UserData";
+import { Attachment, Information, ItemKeyValue } from "../../../entities/UserData";
 import { useEffect } from "react";
 import ServicesEdit from "./edit/ServicesEdit";
+import TermsEdit from "./edit/TermsEdit";
 import InformationsEdit from "./edit/InformationsEdit";
 
 const NavGeneralInfo = styled.div`
@@ -41,6 +43,7 @@ function Content() {
     const globalSpecialties = useSelector((state: IGlobalState) => state.userData?.specialties)
     const globalInformations = useSelector((state: IGlobalState) => state.userData?.informations)
     const globalServices = useSelector((state: IGlobalState) => state.userData?.services)
+    const globalTerms = useSelector((state: IGlobalState) => state.userData?.terms)
 
     const [expertises, setExpertises] = useState<ItemKeyValue>({});
     const [specialties, setSpecialties] = useState<ItemKeyValue>({});
@@ -48,6 +51,7 @@ function Content() {
     const [counties, setCounties] = useState<ItemKeyValue>({});
     const [informations, setInformations] = useState<Information>({});
     const [services, setServices] = useState<ItemKeyValue>({});
+    const [terms, setTerms] = useState<Attachment>({});
 
     //
 
@@ -87,6 +91,12 @@ function Content() {
         }
     }, [globalServices])
 
+    useEffect(() => {
+        if (globalTerms !== null && globalTerms !== undefined) {
+            setTerms(globalTerms);
+        }
+    }, [globalTerms])
+
     //
 
     const saveUserDataAndClose = () => {
@@ -97,6 +107,7 @@ function Content() {
                 admission: admissions,
                 counties: counties,
                 informations: informations,
+                terms: terms,
                 services: services
             }));
         }
@@ -143,6 +154,7 @@ function Content() {
                         <SpaceLine />
                         <InformationsEdit informations={informations} onChange={setInformations} />
                         <ServicesEdit items={services} onChange={setServices} />
+                        <TermsEdit items={terms} onChange={setTerms} />
                         <Proposals />
                         <InternalReviews />
                         <Fees />
@@ -153,6 +165,7 @@ function Content() {
                         <SpaceLine />
                         <Informations />
                         <Services />
+                        <Terms />
                         <Proposals />
                         <InternalReviews />
                         <Fees />
