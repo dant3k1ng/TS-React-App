@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { IGlobalState } from "../../../../redux/reducers";
-import { HourlyFeeBox, HourlyFeeText, InformationsContainer, Label, TermsAndConditionsText } from "../styles/InformationsStyles";
+import { HourlyFeeBox, HourlyFeeText, InformationsContainer, Label } from "../styles/InformationsStyles";
 
 function Informations() {
 
