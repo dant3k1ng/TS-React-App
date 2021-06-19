@@ -58,6 +58,7 @@ export const UserAvatarBox = styled.div`
     align-items: center;
     margin: 0 5px;
     width: 100px;
+    position: relative;
 `;
 
 export const UserAvatar = styled.img`
@@ -65,6 +66,17 @@ export const UserAvatar = styled.img`
     height: 55px;
     object-fit: cover;
     border-radius: 100%;
+`;
+
+export const UserAvatarInput = styled.input`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 export const SeeProfileButton = styled.button`

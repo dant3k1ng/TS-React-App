@@ -7,6 +7,8 @@ import {
     UserDataContainer, UserEmail, Username, UserPhone
 } from "../styles/HeaderStyles";
 import { GetLoggedUser } from "../../../../helpers/User";
+import { IGlobalState } from "../../../../redux/reducers";
+import { useSelector } from "react-redux";
 
 interface IProps {
     setEditMode: Function;
@@ -14,6 +16,7 @@ interface IProps {
 
 function Header(props: IProps) {
     const user = GetLoggedUser();
+    const userPhoto = useSelector((state: IGlobalState) => state.userPhoto);
 
     return (
         <HeaderContainer>
@@ -24,7 +27,7 @@ function Header(props: IProps) {
             </HeaderTopContainer>
             <UserDataContainer>
                 <UserAvatarBox>
-                    <UserAvatar src="img/avatar.jpg" alt="profile avatar" />
+                    <UserAvatar src={userPhoto?.thumbnailUrl} alt="profile avatar" />
                     <SeeProfileButton>See profile</SeeProfileButton>
                 </UserAvatarBox>
                 <DataContent>

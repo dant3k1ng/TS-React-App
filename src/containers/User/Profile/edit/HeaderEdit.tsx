@@ -5,12 +5,15 @@ import { SaveButton } from "../../../../shared/styleHelpers/components/ActionBut
 import {
     ActionBox, DataContent, DataContentColumn, DataContentRow, HeaderContainer,
     HeaderTopButton, HeaderTopContainer, SeeProfileButton, UserAvatar, UserAvatarBox,
+    UserAvatarInput,
     UserDataContainer, UserDataTextCompanyNameInput, UserDataTextInput, UserDataTextUsernameInput,
 } from "../styles/HeaderStyles";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { setUser } from "../../../../redux/actions/UserAction";
 import { GetLoggedUser } from "../../../../helpers/User";
+import { IGlobalState } from "../../../../redux/reducers";
+import { setUserPhoto } from "../../../../redux/actions/UserPhotoAction";
 
 interface IProps {
     afterSave: Function;
@@ -21,8 +24,11 @@ interface IUserFormAttr {
 }
 
 function HeaderEdit(props: IProps) {
-    const user = GetLoggedUser();
     const dispatch = useDispatch();
+    const user = GetLoggedUser();
+
+    const userPhoto = useSelector((state: IGlobalState) => state.userPhoto);
+    const [avatar, setAvatar] = useState("");
     const [formAttr, setFormAttr] = useState<IUserFormAttr>({});
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,11 +54,27 @@ function HeaderEdit(props: IProps) {
             tmpUser.address.street = getByFormAttr('address-street') || user?.address?.street;
             tmpUser.email = getByFormAttr('email') || user.email;
             tmpUser.phone = getByFormAttr('phone') || user.phone;
+
+            if(avatar !== "") {
+                let tmpUserPhoto = Object.assign({}, userPhoto);
+                tmpUserPhoto.thumbnailUrl = avatar;
+                dispatch(setUserPhoto(tmpUserPhoto));
+            }
+
             dispatch(setUser(tmpUser));
         }
 
         props.afterSave();
     }
+
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files !== null && event.target.files.length > 0) {
+            const file = URL.createObjectURL(event.target.files[0]);
+            setAvatar(file);
+        }
+    }
+
+    //
 
     return (
         <HeaderContainer>
@@ -63,7 +85,8 @@ function HeaderEdit(props: IProps) {
             </HeaderTopContainer>
             <UserDataContainer>
                 <UserAvatarBox>
-                    <UserAvatar src="img/avatar.jpg" alt="profile avatar" />
+                    <UserAvatar src={avatar === "" ? userPhoto?.thumbnailUrl : avatar} alt="profile avatar" />
+                    <UserAvatarInput type="file" accept="image/*" onChange={(e) => handleImageChange(e)}/>
                     <SeeProfileButton>See profile</SeeProfileButton>
                 </UserAvatarBox>
                 <DataContent>
