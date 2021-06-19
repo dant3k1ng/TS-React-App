@@ -1,9 +1,18 @@
 import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import styled from "styled-components";
 import { ItemKeyValue } from "../../../../entities/UserData";
 import { EditButton } from "../../../../shared/styleHelpers/components/ActionButton";
 import { CustomBox, Label, TagInput, TagInputBox, TagsContainer } from "../styles/CommonStyles";
+
+const TagInputBoxWrapper = styled(TagInputBox)`
+    width: 100%;
+`;
+
+const TagInputWrapper = styled(TagInput)`
+    width: 100%;
+`;
 
 const randomString = () => {
     return String(Date.now());
@@ -43,8 +52,8 @@ function ServicesEdit(props: IProps) {
         let value = props.items[itemKey];
 
         itemsToShow.push(
-            <TagInputBox key={itemKey} onClick={() => setFocusedId(itemKey)}>
-                <TagInput id={itemKey} value={value} onChange={(e) => handleChange(e)} />
+            <TagInputBoxWrapper key={itemKey} onClick={() => setFocusedId(itemKey)}>
+                <TagInputWrapper id={itemKey} value={value} onChange={(e) => handleChange(e)} />
                 {
                     focusedId === itemKey ? (
                         <EditButton onClick={() => handleDelete(itemKey)}>
@@ -52,7 +61,7 @@ function ServicesEdit(props: IProps) {
                         </EditButton>
                     ) : null
                 }
-            </TagInputBox>
+            </TagInputBoxWrapper>
         );
     }
 
