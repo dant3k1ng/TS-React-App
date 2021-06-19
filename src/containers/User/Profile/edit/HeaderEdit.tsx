@@ -41,7 +41,7 @@ function HeaderEdit(props: IProps) {
 
     const saveUserData = () => {
         if (user !== null) {
-            let tmpUser = user;
+            let tmpUser = Object.assign({}, user);
             tmpUser.name = getByFormAttr('user-name') || user.name;
             tmpUser.company.name = getByFormAttr('user-company-name') || user?.company?.name;
             tmpUser.address.city = getByFormAttr('address-city') || user?.address?.city;
