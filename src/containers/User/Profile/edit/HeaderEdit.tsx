@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSave } from '@fortawesome/free-solid-svg-icons';
+import { faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 import React from "react";
 import { SaveButton } from "../../../../shared/styleHelpers/components/ActionButton";
 import {
@@ -75,6 +75,9 @@ function HeaderEdit(props: IProps) {
                         <ActionBox>
                             <SaveButton onClick={() => saveUserData()}>
                                 <FontAwesomeIcon icon={faSave} />
+                            </SaveButton>
+                            <SaveButton onClick={() => props.afterSave()}>
+                                <FontAwesomeIcon icon={faTimes} />
                             </SaveButton>
                         </ActionBox>
                     </DataContentRow>
