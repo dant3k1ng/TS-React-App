@@ -5,7 +5,7 @@ import {
     ActionBox, CityName, CompanyName, DataContent, DataContentColumn, DataContentRow, HeaderContainer,
     HeaderTopButton, HeaderTopContainer, SeeProfileButton, StreetName, UserAvatar, UserAvatarBox,
     UserDataContainer, UserEmail, Username, UserPhone
-} from "./styles/HeaderStyles";
+} from "../styles/HeaderStyles";
 import { GetLoggedUser } from "../../../../helpers/User";
 
 interface IProps {

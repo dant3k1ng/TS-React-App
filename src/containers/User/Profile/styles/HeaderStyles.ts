@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Color from "../../../../../shared/styleHelpers/Colors";
+import Color from "../../../../shared/styleHelpers/Colors";
 
 export const HeaderContainer = styled.div`
     width: 100%;

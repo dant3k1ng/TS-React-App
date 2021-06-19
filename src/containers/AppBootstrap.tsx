@@ -7,6 +7,8 @@ import { getWorkspaces } from "../api/Workspace";
 import { setWorkspace } from "../redux/actions/WorkspaceAction";
 import { getPhoto } from "../api/Photo";
 import { setUserPhoto } from "../redux/actions/UserPhotoAction";
+import { UserData } from "../entities/UserData";
+import { setUserData } from "../redux/actions/UserDataAction";
 
 function AppBootstrap() {
   const dispatch = useDispatch();
@@ -30,15 +32,34 @@ function AppBootstrap() {
       }
     }
 
-    getUserData();
-  });
+    function getFakeUserData()
+    {
+      const obj: UserData = {
+        expertise: {"e4356ff" : "Mergers and acquisition"},
+        specialties: {"s46354543" : "Cross border operation", "s56756856" : "Transaction over 500M€/$"},
+        admission: {"a879565" : "Paris bar association", "a5674345" : "Tunisian bar association"},
+        counties: {"c6486796" : "Tunisia"},
+        informations: {
+          hourlyFee: "610€/hour",
+          hourlyFeeNegociated: true,
+          termsAndConditions: "Monthly 10k€ retainer - see with Jeanny Smith",
+        },
+        services: {
+          "1": "Corporate M&A and international acqusitions",
+        }
+      }
 
-  useEffect(() => {
+      dispatch(setUserData(obj));
+    }
+
+    getFakeUserData();
+    getUserData();
     getWorkspaces()
       .then(response => {
         dispatch(setWorkspace(response))
-      })
-  })
+      });    
+  });
+
 
   return <AppRouter />
 }

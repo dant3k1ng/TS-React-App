@@ -6,7 +6,7 @@ import {
     ActionBox, DataContent, DataContentColumn, DataContentRow, HeaderContainer,
     HeaderTopButton, HeaderTopContainer, SeeProfileButton, UserAvatar, UserAvatarBox,
     UserDataContainer, UserDataTextCompanyNameInput, UserDataTextInput, UserDataTextUsernameInput,
-} from "../view/styles/HeaderStyles";
+} from "../styles/HeaderStyles";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { setUser } from "../../../../redux/actions/UserAction";
@@ -26,9 +26,6 @@ function HeaderEdit(props: IProps) {
     const [formAttr, setFormAttr] = useState<IUserFormAttr>({});
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const attr2 = formAttr;
-        attr2[event.target.name] = event.target.value
-
         setFormAttr({
             ...formAttr,
             [event.target.name]: event.target.value
