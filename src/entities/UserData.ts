@@ -6,7 +6,6 @@ export interface Information
 {
     hourlyFee?: string;
     hourlyFeeNegociated?: boolean;
-    termsAndConditions?: string;
 }
 
 //

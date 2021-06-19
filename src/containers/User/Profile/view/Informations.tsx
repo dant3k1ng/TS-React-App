@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { IGlobalState } from "../../../../redux/reducers";
-import { HourlyFeeBox, TermsAndConditionsBox, HourlyFeeText, InformationsContainer, Label, TermsAndConditionsText } from "../styles/InformationsStyles";
+import { HourlyFeeBox, HourlyFeeText, InformationsContainer, Label, TermsAndConditionsText } from "../styles/InformationsStyles";
 
 function Informations() {
 
@@ -8,7 +8,6 @@ function Informations() {
 
     const hourlyFeeNegociated = userDataInformations?.hourlyFeeNegociated;
     const hourlyFeeText = userDataInformations?.hourlyFee + (hourlyFeeNegociated ? " (Negociated)" : "");
-    const termsAndConditions = userDataInformations?.termsAndConditions;
 
     return (
         <InformationsContainer>
@@ -16,10 +15,6 @@ function Informations() {
                 <Label>Panel informations</Label>
                 <HourlyFeeText>{hourlyFeeText}</HourlyFeeText>
             </HourlyFeeBox>
-            <TermsAndConditionsBox>
-                <Label>Terms & conditions</Label>
-                <TermsAndConditionsText>{termsAndConditions}</TermsAndConditionsText>
-            </TermsAndConditionsBox>
         </InformationsContainer>
     );
 }

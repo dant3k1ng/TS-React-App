@@ -42,7 +42,7 @@ function AppBootstrap() {
         informations: {
           hourlyFee: "610€/hour",
           hourlyFeeNegociated: true,
-          termsAndConditions: "Monthly 10k€ retainer - see with Jeanny Smith",
+          // termsAndConditions: "Monthly 10k€ retainer - see with Jeanny Smith",
         },
         services: {
           "1": "Corporate M&A and international acqusitions",

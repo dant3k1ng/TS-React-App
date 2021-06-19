@@ -1,7 +1,6 @@
 import { Information } from "../../../../entities/UserData";
 import {
-    HourlyFeeBox, TermsAndConditionsBox, HourlyFeeCheckboxInput, InformationsContainer, Label,
-    HourlyFeeInput, TermsAndConditionsText
+    HourlyFeeBox, HourlyFeeCheckboxInput, InformationsContainer, Label, HourlyFeeInput, 
 } from "../styles/InformationsStyles";
 
 interface IProps {
@@ -12,9 +11,10 @@ interface IProps {
 function InformationsEdit(props: IProps) {
 
     const onHourlyFeeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        let current = props.informations;
-        current.hourlyFee = event.target.value;
-        props.onChange(current);
+        props.onChange({
+            hourlyFee: event.target.value,
+            hourlyFeeNegociated: props.informations.hourlyFeeNegociated,
+        });        
     }
 
     const onHourlyFeeNegociatedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,10 +31,6 @@ function InformationsEdit(props: IProps) {
                 <label htmlFor="negociated">Negociated</label>
                 <HourlyFeeCheckboxInput type="checkbox" id="negociated" defaultChecked={props.informations?.hourlyFeeNegociated === true} onChange={(e) => onHourlyFeeNegociatedChange(e)} />
             </HourlyFeeBox>
-            <TermsAndConditionsBox>
-                <Label>Terms & conditions</Label>
-                <TermsAndConditionsText>TODO</TermsAndConditionsText>
-            </TermsAndConditionsBox>
         </InformationsContainer>
     );
 }
