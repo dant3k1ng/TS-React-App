@@ -51,6 +51,18 @@ function AppBootstrap() {
           { id: 2, name: 'Op. Prometh', entity: 'Renault', location: 'USA', expertise: '#M&A', date: randomCreatedDate(), firm: 'Clifford chance' },
           { id: 3, name: 'Op. Latandre', entity: 'Renault', location: 'Italia', expertise: '#Social', date: randomCreatedDate(), firm: 'SVZ' },
         ],
+        internalReviews: [
+          { id: 1, name: 'Operation', entity: 'Renault', location: 'France', expertise: '#Tax', date: randomCreatedDate() },
+          { id: 2, name: 'Op. Prometh', entity: 'Renault', location: 'USA', expertise: '#M&A', date: randomCreatedDate() },
+          { id: 3, name: 'Op. Latandre', entity: 'Renault', location: 'Italia', expertise: '#Social', date: randomCreatedDate() },
+        ],
+        fees: [
+          { id: 1, year: '2019', cost_center: 'CS 153', total_amount: '3 500€', law_firm: 'Clifford chance' },
+          { id: 2, year: '2018', cost_center: 'CS 153', total_amount: '9 500€', law_firm: 'Linklaters' },
+          { id: 3, year: '2017', cost_center: 'CS 47', total_amount: '10 500€', law_firm: 'Linklaters' },
+          { id: 4, year: '', cost_center: 'CS 153', total_amount: '18 500€', law_firm: 'Linklaters' },
+          { id: 5, year: '', cost_center: 'CS 32', total_amount: '15 500€', law_firm: 'Linklaters' },
+        ]
       }
 
       dispatch(setUserData(obj));

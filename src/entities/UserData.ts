@@ -27,4 +27,6 @@ export interface UserData {
     services: ItemKeyValue;
     //
     proposals: GridRowsProp;
+    internalReviews: GridRowsProp;
+    fees: GridRowsProp;
 }
