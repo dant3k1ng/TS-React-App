@@ -24,12 +24,20 @@ import TermsEdit from "./edit/TermsEdit";
 import InformationsEdit from "./edit/InformationsEdit";
 import ProposalsEdit from "./edit/ProposalsEdit";
 import { GridRowsProp } from "@material-ui/data-grid";
+import InternalReviewsEdit from "./edit/InternalReviewsEdit";
+import FeesEdit from "./edit/FeesEdit";
 
 const NavGeneralInfo = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
     height: 24px;
+`;
+
+const ContentWrapper = styled.div`
+    padding-bottom: 64px;
+    display: flex;
+    flex-direction: column;
 `;
 
 function Content() {
@@ -47,6 +55,8 @@ function Content() {
     const globalServices = useSelector((state: IGlobalState) => state.userData?.services)
     const globalTerms = useSelector((state: IGlobalState) => state.userData?.terms)
     const globalProposals = useSelector((state: IGlobalState) => state.userData?.proposals)
+    const globalInternalReviews = useSelector((state: IGlobalState) => state.userData?.internalReviews)
+    const globalFees = useSelector((state: IGlobalState) => state.userData?.fees)
 
     const [expertises, setExpertises] = useState<ItemKeyValue>({});
     const [specialties, setSpecialties] = useState<ItemKeyValue>({});
@@ -56,6 +66,8 @@ function Content() {
     const [services, setServices] = useState<ItemKeyValue>({});
     const [terms, setTerms] = useState<Attachment>({});
     const [proposals, setProposals] = useState<GridRowsProp>([]);
+    const [internalReviews, setInternalReviews] = useState<GridRowsProp>([]);
+    const [fees, setFees] = useState<GridRowsProp>([]);
 
     //
 
@@ -107,6 +119,18 @@ function Content() {
         }
     }, [globalProposals])
 
+    useEffect(() => {
+        if (globalInternalReviews !== null && globalInternalReviews !== undefined) {
+            setInternalReviews(globalInternalReviews);
+        }
+    }, [globalInternalReviews])
+
+    useEffect(() => {
+        if (globalFees !== null && globalFees !== undefined) {
+            setFees(globalFees);
+        }
+    }, [globalFees])
+
     //
 
     const saveUserDataAndClose = () => {
@@ -120,6 +144,8 @@ function Content() {
                 terms: terms,
                 services: services,
                 proposals: proposals,
+                internalReviews: internalReviews,
+                fees: fees,
             }));
         }
 
@@ -129,7 +155,7 @@ function Content() {
     //
 
     return (
-        <>
+        <ContentWrapper>
             {
                 editModeProfileInformation ? (
                     <HeaderEdit afterSave={() => setEditModeProfileInformation(false)} />
@@ -166,9 +192,12 @@ function Content() {
                         <InformationsEdit informations={informations} onChange={setInformations} />
                         <ServicesEdit items={services} onChange={setServices} />
                         <TermsEdit items={terms} onChange={setTerms} />
+                        <SpaceLine />
                         <ProposalsEdit items={proposals} onChange={setProposals}/>
-                        <InternalReviews />
-                        <Fees />
+                        <SpaceLine />
+                        <InternalReviewsEdit items={internalReviews} onChange={setInternalReviews} />
+                        <SpaceLine />
+                        <FeesEdit items={fees} onChange={setFees}/>
                     </>
                 ) : (
                     <>
@@ -177,13 +206,16 @@ function Content() {
                         <Informations />
                         <Services />
                         <Terms />
+                        <SpaceLine />
                         <Proposals />
+                        <SpaceLine />
                         <InternalReviews />
+                        <SpaceLine />
                         <Fees />
                     </>
                 )
             }
-        </>
+        </ContentWrapper>
     );
 }
 

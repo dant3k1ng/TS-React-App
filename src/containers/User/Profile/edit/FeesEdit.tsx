@@ -1,9 +1,9 @@
 import { DataGrid, GridEditCellPropsParams, GridRowsProp } from '@material-ui/data-grid';
 import { Label } from '../styles/CommonStyles';
 import styled from 'styled-components';
-import { proposalsColumns } from '../_common/ProposalsColumns';
+import { feesColumns } from '../_common/FeesColumns';
 
-const ProposalsWrapper = styled.div`
+const FeesWrapper = styled.div`
     display: flex;
     flex-direction: column;
 `;
@@ -13,10 +13,10 @@ interface IProps {
     onChange: (items: GridRowsProp) => void
 }
 
-function ProposalsEdit(props: IProps) {
+function FeesEdit(props: IProps) {
 
-    for (let i in proposalsColumns) {
-        proposalsColumns[i].editable = true;
+    for (let i in feesColumns) {
+        feesColumns[i].editable = true;
     }
 
     const handleChange = (params: GridEditCellPropsParams) => {
@@ -36,13 +36,13 @@ function ProposalsEdit(props: IProps) {
     }
 
     return (
-        <ProposalsWrapper>
-            <Label>Proposals</Label>
-            <div style={{ minHeight: 214, width: '100%' }}>
-                <DataGrid rows={props.items} columns={proposalsColumns} hideFooter onEditCellChangeCommitted={(params) => handleChange(params)} />
+        <FeesWrapper>
+            <Label>Amount of fess</Label>
+            <div style={{ minHeight: 360, width: '100%' }}>
+                <DataGrid rows={props.items} columns={feesColumns} hideFooter onEditCellChangeCommitted={(params) => handleChange(params)} />
             </div>
-        </ProposalsWrapper>
+        </FeesWrapper>
     );
 }
 
-export default ProposalsEdit;
+export default FeesEdit;
