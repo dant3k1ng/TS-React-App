@@ -16,7 +16,7 @@ function Terms() {
         const fileUrl = isImage ? URL.createObjectURL(file) : "";
 
         items.push(
-            <TagInputBox>
+            <TagInputBox key={key}>
                 {isImage && fileUrl !== "" ? <InputImageWrapper src={fileUrl} /> : null}
                 <InputDataWrapper>
                     <FileNameText>{fileName}</FileNameText>

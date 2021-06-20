@@ -22,6 +22,8 @@ import { useEffect } from "react";
 import ServicesEdit from "./edit/ServicesEdit";
 import TermsEdit from "./edit/TermsEdit";
 import InformationsEdit from "./edit/InformationsEdit";
+import ProposalsEdit from "./edit/ProposalsEdit";
+import { GridRowsProp } from "@material-ui/data-grid";
 
 const NavGeneralInfo = styled.div`
     display: flex;
@@ -44,6 +46,7 @@ function Content() {
     const globalInformations = useSelector((state: IGlobalState) => state.userData?.informations)
     const globalServices = useSelector((state: IGlobalState) => state.userData?.services)
     const globalTerms = useSelector((state: IGlobalState) => state.userData?.terms)
+    const globalProposals = useSelector((state: IGlobalState) => state.userData?.proposals)
 
     const [expertises, setExpertises] = useState<ItemKeyValue>({});
     const [specialties, setSpecialties] = useState<ItemKeyValue>({});
@@ -52,6 +55,7 @@ function Content() {
     const [informations, setInformations] = useState<Information>({});
     const [services, setServices] = useState<ItemKeyValue>({});
     const [terms, setTerms] = useState<Attachment>({});
+    const [proposals, setProposals] = useState<GridRowsProp>([]);
 
     //
 
@@ -97,6 +101,12 @@ function Content() {
         }
     }, [globalTerms])
 
+    useEffect(() => {
+        if (globalProposals !== null && globalProposals !== undefined) {
+            setProposals(globalProposals);
+        }
+    }, [globalProposals])
+
     //
 
     const saveUserDataAndClose = () => {
@@ -108,7 +118,8 @@ function Content() {
                 counties: counties,
                 informations: informations,
                 terms: terms,
-                services: services
+                services: services,
+                proposals: proposals,
             }));
         }
 
@@ -155,7 +166,7 @@ function Content() {
                         <InformationsEdit informations={informations} onChange={setInformations} />
                         <ServicesEdit items={services} onChange={setServices} />
                         <TermsEdit items={terms} onChange={setTerms} />
-                        <Proposals />
+                        <ProposalsEdit items={proposals} onChange={setProposals}/>
                         <InternalReviews />
                         <Fees />
                     </>

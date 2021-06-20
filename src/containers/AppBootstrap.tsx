@@ -9,13 +9,13 @@ import { getPhoto } from "../api/Photo";
 import { setUserPhoto } from "../redux/actions/UserPhotoAction";
 import { UserData } from "../entities/UserData";
 import { setUserData } from "../redux/actions/UserDataAction";
+import { randomCreatedDate } from "@material-ui/x-grid-data-generator";
 
 function AppBootstrap() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    async function getUserData()
-    {
+    async function getUserData() {
       const user = await getUser()
         .then(response => response.json())
         .then(data => {
@@ -23,7 +23,7 @@ function AppBootstrap() {
           return data;
         });
 
-      if("id" in user) {
+      if ("id" in user) {
         getPhoto(user.id)
           .then(response => response.json())
           .then(data => {
@@ -32,13 +32,12 @@ function AppBootstrap() {
       }
     }
 
-    function getFakeUserData()
-    {
+    function getFakeUserData() {
       const obj: UserData = {
-        expertise: {"e4356ff" : "Mergers and acquisition"},
-        specialties: {"s46354543" : "Cross border operation", "s56756856" : "Transaction over 500M€/$"},
-        admission: {"a879565" : "Paris bar association", "a5674345" : "Tunisian bar association"},
-        counties: {"c6486796" : "Tunisia"},
+        expertise: { "e4356ff": "Mergers and acquisition" },
+        specialties: { "s46354543": "Cross border operation", "s56756856": "Transaction over 500M€/$" },
+        admission: { "a879565": "Paris bar association", "a5674345": "Tunisian bar association" },
+        counties: { "c6486796": "Tunisia" },
         informations: {
           hourlyFee: "610€/hour",
           hourlyFeeNegociated: true,
@@ -46,7 +45,12 @@ function AppBootstrap() {
         terms: {},
         services: {
           "1": "Corporate M&A and international acqusitions",
-        }
+        },
+        proposals: [
+          { id: 1, name: 'Operation', entity: 'Renault', location: 'France', expertise: '#Tax', date: randomCreatedDate(), firm: 'Racine' },
+          { id: 2, name: 'Op. Prometh', entity: 'Renault', location: 'USA', expertise: '#M&A', date: randomCreatedDate(), firm: 'Clifford chance' },
+          { id: 3, name: 'Op. Latandre', entity: 'Renault', location: 'Italia', expertise: '#Social', date: randomCreatedDate(), firm: 'SVZ' },
+        ],
       }
 
       dispatch(setUserData(obj));
@@ -57,7 +61,7 @@ function AppBootstrap() {
     getWorkspaces()
       .then(response => {
         dispatch(setWorkspace(response))
-      });    
+      });
   });
 
 

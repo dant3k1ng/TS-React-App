@@ -1,3 +1,5 @@
+import { GridRowsProp } from "@material-ui/data-grid";
+
 export interface ItemKeyValue {
     [key: string]: string;
 }
@@ -23,4 +25,6 @@ export interface UserData {
     informations: Information;
     terms: Attachment;
     services: ItemKeyValue;
+    //
+    proposals: GridRowsProp;
 }
